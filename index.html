@@ -12,12 +12,15 @@
 </head>
 <body>
 
-<!-- Navbar -->
 <nav class="navbar">
   <div class="nav-inner">
-    <span class="logo">WebForge</span>
+    <a href="#home" class="logo-wrapper">
+      <img src="img/web_forge-removebg-preview.png" alt="WebForge Logo" class="logo-img">
+      <span class="logo-text">WebForge</span>
+    </a>
+    
     <div class="nav-links">
-      <a class="nav-link nav-link--active" href="#">Home</a>
+      <a class="nav-link nav-link--active" href="#home">Home</a>
       <a class="nav-link" href="#servicios">Servicios</a>
       <a class="nav-link" href="#portfolio">Portfolio</a>
       <a class="nav-link" href="#proceso">Proceso</a>
@@ -27,10 +30,9 @@
   </div>
 </nav>
 
-<!-- Hero -->
-<section class="hero">
+<section class="hero" id="home">
   <div class="container">
-    <div class="hero-content">
+    <div class="hero-content reveal">
       <div class="hero-badge">
         <span>Agencia Digital Boutique</span>
       </div>
@@ -45,15 +47,14 @@
         <button class="btn btn-outline">Nuestros Servicios</button>
       </div>
     </div>
-    <div class="hero-image-wrapper">
+    <div class="hero-image-wrapper reveal">
       <div class="hero-image-card">
-        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDokAeJNpHuvQkYriWBvR6WX63DqoJO_-4v09cpSQ4yjZkAHSjNp4knH5TNmKPtL0xhxKfTeH5WAg7JDSpIww9-4NqeatsLwKo_7rq789lZyPHh92iRrOQE8rexsadpl2kX7g3mLir6nYDYwSFJ_tSGq4eruddbADG0dlCUTGqQ5C3WA-fgQwvYA7aM5RkbVu7x8lBbbZpA_HhqWYbOOZf8yrCEVdnQ-yHd1ETu9sxYcIF30mZlA2SD" alt="Mockup de una laptop mostrando una web moderna estilo arquitectónico">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDokAeJNpHuvQkYriWBvR6WX63DqoJO_-4v09cpSQ4yjZkAHSjNp4knH5TNmKPtL0xhxKfTeH5WAg7JDSpIww9-4NqeatsLwKo_7rq789lZyPHh92iRrOQE8rexsadpl2kX7g3mLir6nYDYwSFJ_tSGq4eruddbADG0dlCUTGqQ5C3WA-fgQwvYA7aM5RkbVu7x8lBbbZpA_HhqWYbOOZf8yrCEVdnQ-yHd1ETu9sxYcIF30mZlA2SD" alt="Mockup de laptop">
       </div>
     </div>
   </div>
 </section>
 
-<!-- Trust bar -->
 <section class="trust-bar">
   <div class="container trust-inner">
     <div class="trust-stat">
@@ -70,18 +71,15 @@
   </div>
 </section>
 
-<!-- Servicios -->
 <section class="section" id="servicios">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header reveal">
       <h2 class="section-title">Servicios de Fundición Digital</h2>
       <div class="section-header-divider"></div>
     </div>
     <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon">
-          <span class="material-symbols-outlined">web</span>
-        </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><span class="material-symbols-outlined">web</span></div>
         <h3 class="service-title">Diseño Web Premium</h3>
         <p class="service-description">Sitios web de alto rendimiento diseñados para convertir visitantes en clientes leales.</p>
         <div class="service-footer">
@@ -89,10 +87,8 @@
           <span class="service-price">$1,200</span>
         </div>
       </div>
-      <div class="service-card">
-        <div class="service-icon">
-          <span class="material-symbols-outlined">search_check</span>
-        </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><span class="material-symbols-outlined">search_check</span></div>
         <h3 class="service-title">SEO Local</h3>
         <p class="service-description">Domina los resultados de búsqueda en tu ciudad y atrae tráfico cualificado cada día.</p>
         <div class="service-footer">
@@ -100,10 +96,8 @@
           <span class="service-price">$450/mes</span>
         </div>
       </div>
-      <div class="service-card">
-        <div class="service-icon">
-          <span class="material-symbols-outlined">shopping_bag</span>
-        </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><span class="material-symbols-outlined">shopping_bag</span></div>
         <h3 class="service-title">E-commerce</h3>
         <p class="service-description">Tiendas robustas y escalables integradas con los mejores sistemas de pago.</p>
         <div class="service-footer">
@@ -115,26 +109,24 @@
   </div>
 </section>
 
-<!-- Proceso -->
 <section class="section section--alt" id="proceso">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header reveal">
       <h2 class="section-title">Nuestra Forja</h2>
       <p class="section-subtitle">Un método estructurado para resultados predecibles.</p>
     </div>
     <div class="process-grid">
-      <div class="process-line"></div>
-      <div class="process-step">
+      <div class="process-step reveal">
         <div class="step-number">1</div>
         <h4 class="step-title">Consulta</h4>
         <p class="step-description">Entendemos tu visión, analizamos tu mercado y definimos los pilares del proyecto.</p>
       </div>
-      <div class="process-step">
+      <div class="process-step reveal">
         <div class="step-number">2</div>
-        <h4 class="step-title">Diseño &amp; Forja</h4>
+        <h4 class="step-title">Diseño & Forja</h4>
         <p class="step-description">Construimos la estructura y el diseño con materiales digitales de primera calidad.</p>
       </div>
-      <div class="process-step">
+      <div class="process-step reveal">
         <div class="step-number">3</div>
         <h4 class="step-title">Lanzamiento</h4>
         <p class="step-description">Optimizamos, testeamos y entregamos una herramienta lista para generar ingresos.</p>
@@ -143,41 +135,37 @@
   </div>
 </section>
 
-<!-- Portafolio -->
 <section class="section" id="portfolio">
   <div class="container">
-    <div class="portfolio-header">
+    <div class="portfolio-header reveal">
       <div>
         <h2 class="section-title">Proyectos Forjados</h2>
         <p class="section-subtitle">Testimonios visuales de nuestra dedicación al detalle.</p>
       </div>
-      <a class="portfolio-view-all" href="#">
-        Ver todos los proyectos
-        <span class="material-symbols-outlined">arrow_forward</span>
-      </a>
+      <a class="portfolio-view-all" href="#">Ver todos los proyectos <span class="material-symbols-outlined">arrow_forward</span></a>
     </div>
     <div class="portfolio-grid">
-      <div class="portfolio-item">
+      <div class="portfolio-item reveal">
         <div class="portfolio-image-wrapper">
-          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJ_AIRg4UBiLjldwEtZ-mMvQQ_gYORFfY8Tb5ibiz_C638ExRLY2DrRN0KBsgFhpFiea_MkAvmXABuygA5KSi2tugUNsagZFLNxgYbnMgADScmfUUat3mYLP2SPksBE0iLrBYbhyY_iJ2stjci72QpZFsYsUH11FeuTcNP-SHmZTxfAekmY6EAEP7Rlh5XURFySKWz97vfYjjOiA6Sy4hz8CF79LDEhzRSbHn0MjgNGujxbX0X2r7W" alt="Web de diseño arquitectónico premium">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJ_AIRg4UBiLjldwEtZ-mMvQQ_gYORFfY8Tb5ibiz_C638ExRLY2DrRN0KBsgFhpFiea_MkAvmXABuygA5KSi2tugUNsagZFLNxgYbnMgADScmfUUat3mYLP2SPksBE0iLrBYbhyY_iJ2stjci72QpZFsYsUH11FeuTcNP-SHmZTxfAekmY6EAEP7Rlh5XURFySKWz97vfYjjOiA6Sy4hz8CF79LDEhzRSbHn0MjgNGujxbX0X2r7W" alt="Proyecto 1">
           <span class="portfolio-badge">+40% pedidos online</span>
         </div>
         <span class="portfolio-category">Restauración Premium</span>
-        <h4 class="portfolio-name">Sabor &amp; Estructura</h4>
+        <h4 class="portfolio-name">Sabor & Estructura</h4>
         <a class="case-link" href="#">Ver Caso <span class="material-symbols-outlined">launch</span></a>
       </div>
-      <div class="portfolio-item">
+      <div class="portfolio-item reveal">
         <div class="portfolio-image-wrapper">
-          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrlO7MzCQ5fHftQPm5oZg21tvhiIK8Adl_P7V_FJYVpeZr6Csf8RpSuRx03X2_eI70-BXPQ_hPdG62xQj_4oqxTJInWn6KC58us76cTjeqxwuhveXGAuAj-L_cThUvDAMNakfYsVafuoUfbAhIDUP5aQRyllFNzrWHhOuCzm7jYdjeoLanQRBJcT-w-ZDdRYyjOWhLfsn9jqUP6omYTMzSJe7FWqB2RRfMqLp66ZUBnDBhD8b-YYSu" alt="Tienda online de mobiliario boutique">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrlO7MzCQ5fHftQPm5oZg21tvhiIK8Adl_P7V_FJYVpeZr6Csf8RpSuRx03X2_eI70-BXPQ_hPdG62xQj_4oqxTJInWn6KC58us76cTjeqxwuhveXGAuAj-L_cThUvDAMNakfYsVafuoUfbAhIDUP5aQRyllFNzrWHhOuCzm7jYdjeoLanQRBJcT-w-ZDdRYyjOWhLfsn9jqUP6omYTMzSJe7FWqB2RRfMqLp66ZUBnDBhD8b-YYSu" alt="Proyecto 2">
           <span class="portfolio-badge">+2x conversión</span>
         </div>
         <span class="portfolio-category">Mobiliario de Autor</span>
         <h4 class="portfolio-name">La Carpintería Moderna</h4>
         <a class="case-link" href="#">Ver Caso <span class="material-symbols-outlined">launch</span></a>
       </div>
-      <div class="portfolio-item">
+      <div class="portfolio-item reveal">
         <div class="portfolio-image-wrapper">
-          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAa0Y8zUUNLiD5g_q3LA52wzm2lu58WABJP6T8FgxQHALS1f1XQIdn-R25KcIxzmWU5XCb7KFCUw5alksnjYZARmNqjQ9XVKwunGCfQUHI-fxUtwCvuscDuOkx5qWvHAzApC_4QE9lu4Y0KW3ojGnDTgZHa7Am9F2HGypEbdu6Ai7OhcQ4LdH7Tfio1m4QbUscLNtZdT87EoenLIMaXdeVdryfF79HDAiDG92cKXjcSG0OBG-uxwCE" alt="Dashboard de servicios logísticos">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAa0Y8zUUNLiD5g_q3LA52wzm2lu58WABJP6T8FgxQHALS1f1XQIdn-R25KcIxzmWU5XCb7KFCUw5alksnjYZARmNqjQ9XVKwunGCfQUHI-fxUtwCvuscDuOkx5qWvHAzApC_4QE9lu4Y0KW3ojGnDTgZHa7Am9F2HGypEbdu6Ai7OhcQ4LdH7Tfio1m4QbUscLNtZdT87EoenLIMaXdeVdryfF79HDAiDG92cKXjcSG0OBG-uxwCE" alt="Proyecto 3">
           <span class="portfolio-badge">SEO Ranking #1</span>
         </div>
         <span class="portfolio-category">Servicios Logísticos</span>
@@ -188,54 +176,41 @@
   </div>
 </section>
 
-<!-- Precios -->
 <section class="section">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header reveal">
       <h2 class="section-title">Inversión Digital</h2>
       <p class="section-subtitle">Planes adaptados al momento vital de tu negocio.</p>
     </div>
     <div class="pricing-grid">
-      <div class="pricing-card">
+      <div class="pricing-card reveal">
         <h3 class="plan-name">Básico</h3>
-        <div class="plan-price">
-          <span class="price-amount">$899</span>
-          <span class="price-period">/único</span>
-        </div>
+        <div class="plan-price"><span class="price-amount">$899</span><span class="price-period">/único</span></div>
         <ul class="plan-features">
           <li class="feature-item"><span class="material-symbols-outlined">check_circle</span> Web One-Page Premium</li>
           <li class="feature-item"><span class="material-symbols-outlined">check_circle</span> Diseño Responsive</li>
           <li class="feature-item"><span class="material-symbols-outlined">check_circle</span> SEO Básico Configurativo</li>
-          <li class="feature-item"><span class="material-symbols-outlined">check_circle</span> Hosting 1 año incluido</li>
         </ul>
         <button class="btn btn-outline btn-block">Seleccionar Plan</button>
       </div>
-      <div class="pricing-card pricing-card--featured">
+      <div class="pricing-card pricing-card--featured reveal">
         <span class="featured-badge">RECOMENDADO</span>
         <h3 class="plan-name">Profesional</h3>
-        <div class="plan-price">
-          <span class="price-amount">$1,899</span>
-          <span class="price-period">/único</span>
-        </div>
+        <div class="plan-price"><span class="price-amount">$1,899</span><span class="price-period">/único</span></div>
         <ul class="plan-features">
           <li class="feature-item"><span class="material-symbols-outlined">check_circle</span> Hasta 5 Páginas</li>
           <li class="feature-item"><span class="material-symbols-outlined">check_circle</span> Copywriting Persuasivo</li>
           <li class="feature-item"><span class="material-symbols-outlined">check_circle</span> Estrategia SEO Local Full</li>
-          <li class="feature-item"><span class="material-symbols-outlined">check_circle</span> Soporte Prioritario 6 meses</li>
         </ul>
         <button class="btn btn-primary btn-block">Seleccionar Plan</button>
       </div>
-      <div class="pricing-card">
+      <div class="pricing-card reveal">
         <h3 class="plan-name">E-commerce</h3>
-        <div class="plan-price">
-          <span class="price-amount">$2,999</span>
-          <span class="price-period">/único</span>
-        </div>
+        <div class="plan-price"><span class="price-amount">$2,999</span><span class="price-period">/único</span></div>
         <ul class="plan-features">
           <li class="feature-item"><span class="material-symbols-outlined">check_circle</span> Tienda Online Full</li>
           <li class="feature-item"><span class="material-symbols-outlined">check_circle</span> Gestión de Inventario</li>
           <li class="feature-item"><span class="material-symbols-outlined">check_circle</span> Integración Pasarela Pago</li>
-          <li class="feature-item"><span class="material-symbols-outlined">check_circle</span> Panel de Analítica Avanzada</li>
         </ul>
         <button class="btn btn-outline btn-block">Seleccionar Plan</button>
       </div>
@@ -243,138 +218,27 @@
   </div>
 </section>
 
-<!-- Testimonios -->
-<section class="section section--surface">
+<footer class="footer" id="contacto">
   <div class="container">
-    <div class="section-header">
-      <h2 class="section-title">Lo que dicen de la Forja</h2>
-    </div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <span class="quote-icon material-symbols-outlined">format_quote</span>
-        <p class="testimonial-text">"WebForge no solo diseñó una web, crearon una herramienta que trabaja para mí. Mis reservas online han subido un 45% en solo dos meses."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar"></div>
-          <div>
-            <p class="author-name">Carlos Ruiz</p>
-            <p class="author-role">Dueño, Restaurante La Brasa</p>
-          </div>
-        </div>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="footer-logo">WebForge</span>
+        <p class="footer-description">© 2024 WebForge. Construyendo el futuro digital para negocios locales con ambición global.</p>
       </div>
-      <div class="testimonial-card">
-        <span class="quote-icon material-symbols-outlined">format_quote</span>
-        <p class="testimonial-text">"La atención al detalle es asombrosa. Entendieron mi negocio boutique desde el primer día y lo plasmaron perfectamente en el diseño."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar"></div>
-          <div>
-            <p class="author-name">Elena Martínez</p>
-            <p class="author-role">Fundadora, Elena Deco</p>
-          </div>
-        </div>
+      <div>
+        <h4 class="footer-heading">Servicios</h4>
+        <ul class="footer-links">
+          <li><a href="#servicios">Diseño Web</a></li>
+          <li><a href="#servicios">SEO Local</a></li>
+        </ul>
       </div>
-      <div class="testimonial-card">
-        <span class="quote-icon material-symbols-outlined">format_quote</span>
-        <p class="testimonial-text">"Profesionalidad de principio a fin. El proceso de SEO local nos ha puesto en el mapa de nuestra ciudad. Totalmente recomendados."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar"></div>
-          <div>
-            <p class="author-name">Jorge Sanz</p>
-            <p class="author-role">Director, Sanz Logística</p>
-          </div>
-        </div>
+      <div>
+        <h4 class="footer-heading">Agencia</h4>
+        <ul class="footer-links">
+          <li><a href="#proceso">Proceso</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+        </ul>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="section">
-  <div class="faq-container">
-    <div class="section-header">
-      <h2 class="section-title">Preguntas Frecuentes</h2>
-    </div>
-    <div class="faq-list">
-      <details class="faq-item" open>
-        <summary class="faq-question">
-          <span>¿Cuánto tiempo tarda en estar lista la web?</span>
-          <span class="material-symbols-outlined faq-icon">expand_more</span>
-        </summary>
-        <div class="faq-answer">Normalmente entre 3 y 6 semanas dependiendo de la complejidad y del plan seleccionado. Siempre cumplimos con los plazos de entrega forjados al inicio.</div>
-      </details>
-      <details class="faq-item">
-        <summary class="faq-question">
-          <span>¿Incluís el hosting y el dominio?</span>
-          <span class="material-symbols-outlined faq-icon">expand_more</span>
-        </summary>
-        <div class="faq-answer">Sí, todos nuestros planes incluyen el primer año de hosting de alta velocidad y dominio .es o .com totalmente gratis.</div>
-      </details>
-      <details class="faq-item">
-        <summary class="faq-question">
-          <span>¿Tendré mantenimiento posterior?</span>
-          <span class="material-symbols-outlined faq-icon">expand_more</span>
-        </summary>
-        <div class="faq-answer">Ofrecemos planes opcionales de mantenimiento preventivo y actualizaciones para que no tengas que preocuparte por nada técnico.</div>
-      </details>
-      <details class="faq-item">
-        <summary class="faq-question">
-          <span>¿Qué garantías ofrecéis?</span>
-          <span class="material-symbols-outlined faq-icon">expand_more</span>
-        </summary>
-        <div class="faq-answer">Garantizamos un diseño original, carga rápida (PageSpeed &gt; 90) y soporte técnico post-lanzamiento para cualquier incidencia inicial.</div>
-      </details>
-      <details class="faq-item">
-        <summary class="faq-question">
-          <span>¿Cómo se realizan los pagos?</span>
-          <span class="material-symbols-outlined faq-icon">expand_more</span>
-        </summary>
-        <div class="faq-answer">Dividimos el pago en dos hitos: 50% al inicio del proyecto (para reservar fecha en nuestra forja) y 50% antes del lanzamiento final.</div>
-      </details>
-    </div>
-  </div>
-</section>
-
-<!-- CTA final -->
-<section class="final-cta">
-  <div class="cta-card">
-    <div class="cta-accent-bar"></div>
-    <div class="cta-content">
-      <h2 class="cta-title">¿Listo para forjar tu web?</h2>
-      <p class="cta-description">Demos el primer paso hoy mismo. Analizaremos tu situación actual y trazaremos un plan de acción a medida para tu negocio.</p>
-      <button class="btn btn-primary cta-button">Reservar Consulta Gratuita</button>
-      <p class="cta-note">Sin compromiso de permanencia</p>
-    </div>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-brand">
-      <span class="footer-logo">WebForge</span>
-      <p class="footer-description">© 2024 WebForge. Construyendo el futuro digital para negocios locales con ambición global. Profesionales del diseño arquitectónico digital.</p>
-      <div class="footer-social">
-        <a class="social-link" href="#"><span class="material-symbols-outlined">public</span></a>
-        <a class="social-link" href="#"><span class="material-symbols-outlined">group</span></a>
-        <a class="social-link" href="#"><span class="material-symbols-outlined">mail</span></a>
-      </div>
-    </div>
-    <div>
-      <h4 class="footer-heading">Servicios</h4>
-      <ul class="footer-links">
-        <li><a href="#">Diseño Web Premium</a></li>
-        <li><a href="#">SEO Local</a></li>
-        <li><a href="#">E-commerce</a></li>
-        <li><a href="#">Consultoría Digital</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4 class="footer-heading">Agencia</h4>
-      <ul class="footer-links">
-        <li><a href="#">Sobre la Forja</a></li>
-        <li><a href="#">Proyectos</a></li>
-        <li><a href="#">Contacto</a></li>
-        <li><a href="#">Legal &amp; Cookies</a></li>
-      </ul>
     </div>
   </div>
 </footer>
