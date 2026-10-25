@@ -1,62 +1,65 @@
-/* ==========================================================================
-   WEBFORGE — MÓDULO: DESLIZADOR ANTES / DESPUÉS
-   ========================================================================== */
-
+/* Deslizador Antes / Después con Pointer Events para mouse, tacto y lápiz. */
 export function initCompareSlider() {
   const stage = document.querySelector('.slider-stage');
-  const rangeInput = document.querySelector('.slider-range-input');
-  const afterLayer = document.querySelector('.layer-after');
-  const handleLine = document.querySelector('.slider-handle-line');
+  const handle = document.querySelector('.slider-handle-thumb');
+  if (!stage || !handle) return;
 
-  if (!stage || !rangeInput || !afterLayer || !handleLine) return;
+  let value = 50;
+  let dragging = false;
+  let pendingValue = null;
+  let frame = 0;
 
-  const updateSplit = (percent) => {
-    const clamped = Math.max(0, Math.min(100, percent));
-    stage.style.setProperty('--split-pos', `${clamped}%`);
-    rangeInput.value = clamped;
-    rangeInput.setAttribute('aria-valuenow', Math.round(clamped));
+  const render = () => {
+    frame = 0;
+    if (pendingValue === null) return;
+    stage.style.setProperty('--pos', `${pendingValue}%`);
+    handle.setAttribute('aria-valuenow', String(Math.round(pendingValue)));
+    pendingValue = null;
   };
 
-  // 1. Control de rango accesible
-  rangeInput.addEventListener('input', (e) => {
-    updateSplit(e.target.value);
-  });
+  const setValue = (nextValue) => {
+    value = Math.max(0, Math.min(100, nextValue));
+    pendingValue = value;
+    if (!frame) frame = requestAnimationFrame(render);
+  };
 
-  // 2. Arrastre táctil y con puntero en el escenario
-  let isDragging = false;
-
-  const handlePointerMove = (e) => {
-    if (!isDragging) return;
+  const setFromPointer = (event) => {
     const rect = stage.getBoundingClientRect();
-    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-    const offsetX = clientX - rect.left;
-    const percent = (offsetX / rect.width) * 100;
-    updateSplit(percent);
+    if (!rect.width) return;
+    setValue(((event.clientX - rect.left) / rect.width) * 100);
   };
 
-  const stopDragging = () => {
-    isDragging = false;
-    window.removeEventListener('pointermove', handlePointerMove);
-    window.removeEventListener('pointerup', stopDragging);
-    window.removeEventListener('touchmove', handlePointerMove);
-    window.removeEventListener('touchend', stopDragging);
-  };
-
-  stage.addEventListener('pointerdown', (e) => {
-    isDragging = true;
-    handlePointerMove(e);
-    window.addEventListener('pointermove', handlePointerMove, { passive: true });
-    window.addEventListener('pointerup', stopDragging);
+  stage.addEventListener('pointerdown', (event) => {
+    if (event.button !== 0) return;
+    if (event.target.closest?.('.slider-handle-thumb')) handle.focus({ preventScroll: true });
+    dragging = true;
+    stage.setPointerCapture(event.pointerId);
+    setFromPointer(event);
+    event.preventDefault();
   });
 
-  stage.addEventListener('touchstart', (e) => {
-    isDragging = true;
-    handlePointerMove(e);
-    window.addEventListener('touchmove', handlePointerMove, { passive: true });
-    window.addEventListener('touchend', stopDragging);
-  }, { passive: true });
+  stage.addEventListener('pointermove', (event) => {
+    if (dragging) setFromPointer(event);
+  });
 
-  // Posición inicial: 50%
-  updateSplit(50);
+  const stopDragging = (event) => {
+    if (!dragging) return;
+    dragging = false;
+    if (stage.hasPointerCapture(event.pointerId)) stage.releasePointerCapture(event.pointerId);
+  };
+  stage.addEventListener('pointerup', stopDragging);
+  stage.addEventListener('pointercancel', stopDragging);
+  stage.addEventListener('lostpointercapture', () => { dragging = false; });
+
+  handle.addEventListener('keydown', (event) => {
+    const step = event.shiftKey ? 10 : 1;
+    if (event.key === 'ArrowLeft') setValue(value - step);
+    else if (event.key === 'ArrowRight') setValue(value + step);
+    else if (event.key === 'Home') setValue(0);
+    else if (event.key === 'End') setValue(100);
+    else return;
+    event.preventDefault();
+  });
+
+  setValue(50);
 }
-
