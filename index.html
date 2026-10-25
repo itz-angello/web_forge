@@ -985,7 +985,7 @@
             </div>
           </div>
 
-          <!-- Columna Derecha: Formulario conectado a Supabase -->
+          <!-- Columna Derecha: Formulario enviado al backend seguro -->
           <div class="contact-form-card">
             
             <form class="lead-form" id="contact-form" novalidate>
@@ -1024,6 +1024,18 @@
                 <label for="form-whatsapp" class="form-label">Número de WhatsApp (Guatemala) *</label>
                 <input type="tel" id="form-whatsapp" name="whatsapp" class="form-input" placeholder="Ej. 5555 1234 o +502 5555 1234" required autocomplete="tel">
                 <span class="form-error-msg" id="error-whatsapp">Ingresa un número de WhatsApp válido de al menos 8 dígitos.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="form-email" class="form-label">Correo electrónico (opcional)</label>
+                <input type="email" id="form-email" name="email" class="form-input" placeholder="tu@negocio.com" autocomplete="email">
+                <span class="form-error-msg">Ingresa un correo válido.</span>
+              </div>
+
+              <!-- Campo trampa anti-spam: oculto para personas, visible para bots simples. -->
+              <div class="website-field" aria-hidden="true">
+                <label for="form-website">Deja este campo vacío</label>
+                <input id="form-website" name="website" type="text" tabindex="-1" autocomplete="off">
               </div>
 
               <!-- Campo 4: Tipo de proyecto -->
@@ -1162,9 +1174,6 @@
       <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/>
     </svg>
   </a>
-
-  <!-- Supabase CDN Oficial -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <!-- Módulo Principal de JavaScript -->
   <script type="module" src="js/main.js"></script>
