@@ -1,0 +1,183 @@
+/* ==========================================================================
+   WEBFORGE — SECCIÓN: TRABAJOS (DEMOS FICTICIAS)
+   ========================================================================== */
+
+.works-section {
+  background-color: var(--white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+}
+
+.work-card {
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+  cursor: pointer;
+  text-align: left;
+}
+
+.work-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--steel);
+  box-shadow: var(--shadow-md);
+}
+
+.work-preview-wrap {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  background-color: var(--ink);
+  overflow: hidden;
+}
+
+.work-demo-pill {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: var(--accent);
+  color: var(--white);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-xs);
+  z-index: 5;
+}
+
+.work-business-pill {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: rgba(20, 24, 31, 0.85);
+  backdrop-filter: blur(4px);
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-xs);
+  z-index: 5;
+}
+
+/* Maquetas SVG en Miniatura */
+.mockup-render {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 0.4rem;
+}
+
+.mockup-restaurant {
+  background: radial-gradient(circle at center, #1B2433 0%, #101520 100%);
+  color: #FFFFFF;
+}
+
+.mockup-dish-icon {
+  width: 44px;
+  height: 44px;
+  color: var(--spark);
+}
+
+.mockup-clinic {
+  background: radial-gradient(circle at center, #162436 0%, #0E1825 100%);
+  color: #FFFFFF;
+}
+
+.mockup-tooth-icon {
+  width: 44px;
+  height: 44px;
+  color: #60A5FA;
+}
+
+.mockup-store {
+  background: radial-gradient(circle at center, #1E2838 0%, #101622 100%);
+  color: #FFFFFF;
+}
+
+.mockup-bag-icon {
+  width: 44px;
+  height: 44px;
+  color: var(--spark);
+}
+
+.mockup-lawyer {
+  background: radial-gradient(circle at center, #222938 0%, #131720 100%);
+  color: #FFFFFF;
+}
+
+.mockup-scales-icon {
+  width: 44px;
+  height: 44px;
+  color: #E2E8F0;
+}
+
+.mockup-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.mockup-sub {
+  font-size: 0.75rem;
+  color: #94A3B8;
+  max-width: 80%;
+}
+
+.mockup-action-btn {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-xs);
+  background-color: var(--accent);
+  color: #FFFFFF;
+  margin-top: 0.25rem;
+}
+
+.work-info {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.work-name {
+  font-size: 1.25rem;
+  color: var(--ink);
+}
+
+.work-desc {
+  font-size: 0.9375rem;
+  color: var(--steel);
+}
+
+.work-link-text {
+  font-family: var(--font-heading);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.25rem;
+}
+
+@media (min-width: 768px) {
+  .works-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+

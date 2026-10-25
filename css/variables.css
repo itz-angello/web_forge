@@ -1,0 +1,64 @@
+/* ==========================================================================
+   WEBFORGE — VARIABLES GLOBALES
+   Paleta:
+   - --ink: #14181F (texto principal y superficies oscuras)
+   - --steel: #3D4A5C (texto secundario y bordes estructurales)
+   - --bg: #F3F5F7 (fondo neutro general)
+   - --accent: #2F6BFF (azul eléctrico para botones principales y detalles clave)
+   - --spark: #C6F432 (lima para acentos pequeños, etiquetas y estrellas)
+   ========================================================================== */
+
+:root {
+  /* Colores Principales (Requeridos) */
+  --ink: #14181F;
+  --steel: #3D4A5C;
+  --bg: #F3F5F7;
+  --white: #FFFFFF;
+  --accent: #2F6BFF;
+  --accent-hover: #1E55E3;
+  --accent-subtle: rgba(47, 107, 255, 0.12);
+  --spark: #C6F432;
+  --spark-subtle: rgba(198, 244, 50, 0.18);
+
+  /* Bordes y Superficies Estructurales */
+  --border: #DDE2E7;
+  --border-subtle: #EBEFF2;
+  --border-dark: #27303D;
+  --surface-dark: #191F28;
+  --surface-dark-card: #202733;
+
+  /* Estados de formulario */
+  --success: #1E824C;
+  --error: #D9381E;
+
+  /* Tipografías de Google Fonts */
+  --font-heading: 'Bricolage Grotesque', system-ui, -apple-system, sans-serif;
+  --font-body: 'Instrument Sans', system-ui, -apple-system, sans-serif;
+
+  /* Espaciado y Radios */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-full: 9999px;
+
+  /* Sombras */
+  --shadow-sm: 0 2px 8px rgba(20, 24, 31, 0.04);
+  --shadow-md: 0 6px 24px rgba(20, 24, 31, 0.07);
+  --shadow-lg: 0 16px 40px rgba(20, 24, 31, 0.1);
+  --shadow-glow: 0 8px 24px rgba(47, 107, 255, 0.28);
+
+  /* Transiciones */
+  --transition-fast: 0.18s ease;
+  --transition-base: 0.26s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Contenedores */
+  --container-max: 1200px;
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --container-max: 1320px;
+  }
+}
+

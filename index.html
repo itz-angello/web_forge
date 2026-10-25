@@ -1,248 +1,1172 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-GT">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WebForge | Agencia Digital Boutique</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebForge | Páginas Web para Negocios en Guatemala en 7 Días</title>
+  
+  <meta name="description" content="Diseñamos y publicamos páginas web profesionales para negocios locales en Guatemala en solo 7 días. Consigue más clientes por WhatsApp y Google. Sin cobros ocultos.">
+  <meta name="keywords" content="paginas web guatemala, diseño web guatemala, paginas para negocios guatemala, tiendas online guatemala, seo local guatemala">
+  <meta name="author" content="WebForge Guatemala">
+  <meta name="robots" content="index, follow">
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <!-- Open Graph / Redes Sociales -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_GT">
+  <meta property="og:site_name" content="WebForge">
+  <meta property="og:title" content="WebForge | Páginas Web Profesionales para Negocios en Guatemala">
+  <meta property="og:description" content="Tu negocio con página web profesional en 7 días. Diseñada para vender y recibir clientes por WhatsApp.">
+  <meta property="og:image" content="img/logo.svg">
 
-<link rel="stylesheet" href="index.css">
+  <!-- Favicon Oficial -->
+  <link rel="icon" type="image/svg+xml" href="img/icon.svg">
+
+  <!-- Fuentes de Google: Bricolage Grotesque (Títulos) e Instrument Sans (Texto) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Hojas de Estilo en Orden Modular -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/sections/header.css">
+  <link rel="stylesheet" href="css/sections/hero.css">
+  <link rel="stylesheet" href="css/sections/services.css">
+  <link rel="stylesheet" href="css/sections/works.css">
+  <link rel="stylesheet" href="css/sections/process.css">
+  <link rel="stylesheet" href="css/sections/pricing.css">
+  <link rel="stylesheet" href="css/sections/faq.css">
+  <link rel="stylesheet" href="css/sections/contact.css">
+  <link rel="stylesheet" href="css/sections/footer.css">
 </head>
 <body>
 
-<nav class="navbar">
-  <div class="nav-inner">
-    <a href="#home" class="logo-wrapper">
-      <img src="img/web_forge-removebg-preview.png" alt="WebForge Logo" class="logo-img">
-      <span class="logo-text">WebForge</span>
-    </a>
-    
-    <div class="nav-links">
-      <a class="nav-link nav-link--active" href="#home">Home</a>
-      <a class="nav-link" href="#servicios">Servicios</a>
-      <a class="nav-link" href="#portfolio">Portfolio</a>
-      <a class="nav-link" href="#proceso">Proceso</a>
-      <a class="nav-link" href="#contacto">Contacto</a>
-    </div>
-    <button class="btn btn-nav">Empezar Proyecto</button>
-  </div>
-</nav>
+  <!-- =========================================================================
+       1. HEADER FIJO
+       ========================================================================= -->
+  <header class="site-header" id="header">
+    <div class="container header-container">
+      <a href="#hero" class="brand-logo" aria-label="WebForge - Inicio">
+        <img src="img/logo.svg" alt="WebForge" class="brand-logo-img">
+      </a>
 
-<section class="hero" id="home">
-  <div class="container">
-    <div class="hero-content reveal">
-      <div class="hero-badge">
-        <span>Agencia Digital Boutique</span>
+      <!-- Navegación de escritorio -->
+      <nav class="nav-desktop" aria-label="Navegación principal">
+        <a href="#servicios" class="nav-desktop-link">Servicios</a>
+        <a href="#trabajos" class="nav-desktop-link">Trabajos</a>
+        <a href="#proceso" class="nav-desktop-link">Proceso</a>
+        <a href="#precios" class="nav-desktop-link">Precios</a>
+        <a href="#preguntas" class="nav-desktop-link">Preguntas</a>
+      </nav>
+
+      <!-- Botón CTA Escritorio -->
+      <div class="header-cta-desktop">
+        <a href="https://wa.me/50255551234?text=Hola%20WebForge,%20quiero%20cotizar%20una%20p%C3%A1gina%20web%20para%20mi%20negocio." target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/>
+          </svg>
+          <span>Escríbeme por WhatsApp</span>
+        </a>
       </div>
-      <h1 class="hero-title">
-        Forjamos tu <span class="text-accent">Presencia Digital</span>
-      </h1>
-      <p class="hero-description">
-        Transformamos negocios locales en referentes digitales a través de diseño arquitectónico y estrategias de crecimiento de alta precisión.
-      </p>
-      <div class="hero-buttons">
-        <button class="btn btn-primary">Empezar Proyecto</button>
-        <button class="btn btn-outline">Nuestros Servicios</button>
-      </div>
+
+      <!-- Botón hamburguesa móvil -->
+      <button class="nav-toggle-btn" id="nav-toggle" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Abrir menú de navegación">
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+      </button>
     </div>
-    <div class="hero-image-wrapper reveal">
-      <div class="hero-image-card">
-        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDokAeJNpHuvQkYriWBvR6WX63DqoJO_-4v09cpSQ4yjZkAHSjNp4knH5TNmKPtL0xhxKfTeH5WAg7JDSpIww9-4NqeatsLwKo_7rq789lZyPHh92iRrOQE8rexsadpl2kX7g3mLir6nYDYwSFJ_tSGq4eruddbADG0dlCUTGqQ5C3WA-fgQwvYA7aM5RkbVu7x8lBbbZpA_HhqWYbOOZf8yrCEVdnQ-yHd1ETu9sxYcIF30mZlA2SD" alt="Mockup de laptop">
-      </div>
+  </header>
+
+  <!-- Menú deslizante móvil -->
+  <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+    <ul class="mobile-nav-links">
+      <li><a href="#servicios" class="mobile-nav-link">Servicios</a></li>
+      <li><a href="#trabajos" class="mobile-nav-link">Trabajos</a></li>
+      <li><a href="#proceso" class="mobile-nav-link">Proceso</a></li>
+      <li><a href="#precios" class="mobile-nav-link">Precios</a></li>
+      <li><a href="#preguntas" class="mobile-nav-link">Preguntas</a></li>
+      <li><a href="#contacto" class="mobile-nav-link">Contacto</a></li>
+    </ul>
+
+    <div class="mobile-drawer-cta">
+      <a href="https://wa.me/50255551234?text=Hola%20WebForge,%20quiero%20cotizar%20una%20p%C3%A1gina%20web%20para%20mi%20negocio." target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%;">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/>
+        </svg>
+        <span>Escríbeme por WhatsApp</span>
+      </a>
+      <a href="#contacto" class="btn btn-secondary" style="width: 100%;">Llenar formulario</a>
     </div>
   </div>
-</section>
 
-<section class="trust-bar">
-  <div class="container trust-inner">
-    <div class="trust-stat">
-      <span class="trust-number">+50</span>
-      <span class="trust-label">Negocios digitalizados en 2023</span>
-    </div>
-    <div class="trust-logos">
-      <div class="trust-logo-placeholder"></div>
-      <div class="trust-logo-placeholder"></div>
-      <div class="trust-logo-placeholder"></div>
-      <div class="trust-logo-placeholder"></div>
-      <div class="trust-logo-placeholder"></div>
-    </div>
-  </div>
-</section>
+  <main>
+    <!-- =========================================================================
+         2. HERO SECTION & DESLIZADOR ANTES / DESPUÉS
+         ========================================================================= -->
+    <section class="hero-section" id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          
+          <!-- Columna izquierda: Promesa y llamadas a la acción -->
+          <div class="hero-content">
+            <div class="hero-flag">
+              <span class="hero-flag-dot" aria-hidden="true"></span>
+              <span>Cupos disponibles para esta semana en Guatemala</span>
+            </div>
 
-<section class="section" id="servicios">
-  <div class="container">
-    <div class="section-header reveal">
-      <h2 class="section-title">Servicios de Fundición Digital</h2>
-      <div class="section-header-divider"></div>
-    </div>
-    <div class="services-grid">
-      <div class="service-card reveal">
-        <div class="service-icon"><span class="material-symbols-outlined">web</span></div>
-        <h3 class="service-title">Diseño Web Premium</h3>
-        <p class="service-description">Sitios web de alto rendimiento diseñados para convertir visitantes en clientes leales.</p>
-        <div class="service-footer">
-          <span class="service-price-label">Desde</span>
-          <span class="service-price">$1,200</span>
+            <h1 class="hero-title">
+              Tu negocio con página web profesional <span class="highlight">en 7 días</span>
+            </h1>
+
+            <p class="hero-subtitle">
+              Diseño rápido, moderno y enfocado en que las personas que buscan tus servicios en Guatemala te escriban directo a WhatsApp o te llamen hoy mismo. Sin enredos técnicos.
+            </p>
+
+            <div class="hero-actions">
+              <a href="https://wa.me/50255551234?text=Hola%20WebForge,%20quiero%20crear%20la%20p%C3%A1gina%20web%20de%20mi%20negocio." target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/>
+                </svg>
+                <span>Escríbeme por WhatsApp</span>
+              </a>
+              <a href="#trabajos" class="btn btn-secondary">
+                <span>Ver trabajos</span>
+                <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                </svg>
+              </a>
+            </div>
+
+            <div class="hero-proof-bar">
+              <div class="hero-proof-stars" aria-label="Calificación 5 estrellas">
+                ★★★★★
+              </div>
+              <span>Trato directo con el diseñador • Dominio y hosting incluidos</span>
+            </div>
+          </div>
+
+          <!-- Columna derecha: Deslizador interactivo Antes / Después (Pure CSS / SVG) -->
+          <div class="hero-slider-wrap">
+            <div class="slider-card">
+              
+              <div class="slider-header-bar">
+                <div class="browser-dots" aria-hidden="true">
+                  <span></span><span></span><span></span>
+                </div>
+                <div>Comparación: Web antigua vs. WebForge</div>
+                <div style="font-size: 0.75rem; color: #8C9BAA;">7 días de entrega</div>
+              </div>
+
+              <!-- Escenario del deslizador con touch y control de rango -->
+              <div class="slider-stage" style="--split-pos: 50%;">
+                
+                <!-- Capa 1 (Fondo): Web vieja y desordenada -->
+                <div class="slider-layer layer-before" aria-hidden="true">
+                  <span class="layer-badge">ANTES: Web vieja</span>
+                  <div class="old-site-mockup">
+                    <div class="old-marquee">*** ¡BIENVENIDOS A NUESTRO SITIO! LLAME AL PBX EN HORAS DE OFICINA ***</div>
+                    <div class="old-header">
+                      <h4>Negocios Guatemala S.A.</h4>
+                      <div style="font-size: 0.65rem;">Líderes desde 2004 en soluciones generales</div>
+                    </div>
+                    <div class="old-body">
+                      <div class="old-sidebar">
+                        <strong>Menú:</strong><br>
+                        • Inicio<br>
+                        • Misión y Visión<br>
+                        • Galería (No carga)<br>
+                        • Formulario fax
+                      </div>
+                      <div class="old-content">
+                        <strong>NO optimizada para celular.</strong>
+                        <p style="font-size: 0.7rem; color: #555; margin-top: 4px;">
+                          Letra pequeña difícil de leer en pantallas móviles. Sin botón de WhatsApp. Carga pesada con imágenes rotas.
+                        </p>
+                        <div class="old-button">Haga clic aquí</div>
+                      </div>
+                    </div>
+                    <div class="old-footer">
+                      Contador de visitas: 000412 • Resolución recomendada: 800x600 px
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Capa 2 (Superior recortada): Web moderna de WebForge -->
+                <div class="slider-layer layer-after" aria-hidden="true">
+                  <span class="layer-badge">DESPUÉS: WebForge</span>
+                  <div class="new-site-mockup">
+                    <div class="new-nav">
+                      <div class="new-brand">Asados & Grill Chapín</div>
+                      <div class="new-badge">Abierto ahora</div>
+                    </div>
+                    <div class="new-hero-preview">
+                      <h4>Los mejores cortes a la leña en Ciudad de Guatemala</h4>
+                      <p>
+                        Ordena directo a tu mesa o a domicilio sin intermediarios. Calidad garantizada.
+                      </p>
+                      <div class="new-cta-row">
+                        <span class="new-btn-wa">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12c0 1.82.49 3.53 1.34 5L2 22l5.16-1.32C8.6 21.52 10.25 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/>
+                          </svg>
+                          Pedir por WhatsApp
+                        </span>
+                        <span style="font-size: 0.75rem; color: #FFF; font-weight: 600;">Ver Menú QR</span>
+                      </div>
+                    </div>
+                    <div class="new-stats">
+                      <div class="new-stat-box">
+                        <div class="new-stat-num">1.1 seg</div>
+                        <div class="new-stat-desc">Velocidad de carga en celular</div>
+                      </div>
+                      <div class="new-stat-box">
+                        <div class="new-stat-num">+85%</div>
+                        <div class="new-stat-desc">Más contactos directos</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Línea y tirador visual interactivo -->
+                <div class="slider-handle-line">
+                  <div class="slider-handle-thumb">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="15 18 9 12 15 6"></polyline>
+                      <polyline points="9 18 3 12 9 6" style="display:none;"></polyline>
+                      <polyline points="9 18 15 12 9 6" transform="rotate(180 12 12)"></polyline>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Control accesible de rango nativo transparente para ratón y teclado -->
+                <input 
+                  type="range" 
+                  min="0" 
+                  max="100" 
+                  value="50" 
+                  class="slider-range-input" 
+                  aria-label="Deslizar para comparar la web desactualizada con la web moderna de WebForge"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  aria-valuenow="50"
+                >
+              </div>
+
+              <div class="slider-instruction">
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z" clip-rule="evenodd"/>
+                </svg>
+                <span>Arrastra el círculo azul para ver la transformación</span>
+              </div>
+
+            </div>
+          </div>
+
         </div>
       </div>
-      <div class="service-card reveal">
-        <div class="service-icon"><span class="material-symbols-outlined">search_check</span></div>
-        <h3 class="service-title">SEO Local</h3>
-        <p class="service-description">Domina los resultados de búsqueda en tu ciudad y atrae tráfico cualificado cada día.</p>
-        <div class="service-footer">
-          <span class="service-price-label">Desde</span>
-          <span class="service-price">$450/mes</span>
+    </section>
+
+    <!-- =========================================================================
+         3. SERVICIOS (Sin precios, jerarquía variada)
+         ========================================================================= -->
+    <section class="services-section section-padding" id="servicios">
+      <div class="container">
+        
+        <div class="section-header">
+          <h2>Soluciones web diseñadas para vender</h2>
+          <p>Creamos herramientas de trabajo para negocios locales, no adornos digitales vacíos.</p>
+        </div>
+
+        <div class="services-grid">
+          
+          <!-- Servicio 1: Diseño Web para Negocios (Servicio Insignia / Tarjeta Destacada) -->
+          <article class="service-card card-featured">
+            <div class="service-content-left">
+              <div class="service-header-row">
+                <div class="service-icon-wrap" aria-hidden="true">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                  </svg>
+                </div>
+                <span class="service-tag">Servicio Insignia</span>
+              </div>
+
+              <h3 class="service-title">Diseño web para negocios</h3>
+              <p class="service-desc">
+                Una página moderna, veloz y estructurada para que cada persona que entre entienda tu oferta en segundos y te escriba directamente a WhatsApp.
+              </p>
+
+              <div class="service-meta-block">
+                <div class="service-meta-label">Para quién es:</div>
+                <div class="service-meta-target">
+                  Clínicas, bufetes, restaurantes, talleres, constructoras y cualquier negocio de servicios en Guatemala que quiera transmitir confianza absoluta.
+                </div>
+              </div>
+            </div>
+
+            <div class="service-content-right">
+              <div class="service-meta-label">Qué incluye exactamente:</div>
+              <ul class="service-list">
+                <li>
+                  <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Estructura vendedora y redacción clara de tus servicios.</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Botones directos a tu WhatsApp con mensajes listos.</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Integración de Google Maps y Waze para llegar a tu local.</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Carga ultra rápida en teléfonos y certificado de seguridad SSL.</span>
+                </li>
+              </ul>
+              <a href="#contacto" class="btn btn-primary" style="margin-top: auto;">Pedir información</a>
+            </div>
+          </article>
+
+          <!-- Servicio 2: Tienda en Línea (E-commerce) -->
+          <article class="service-card">
+            <div>
+              <div class="service-header-row">
+                <div class="service-icon-wrap" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                  </svg>
+                </div>
+                <span class="service-tag">Venta en Línea</span>
+              </div>
+
+              <h3 class="service-title">Tienda en línea (e-commerce)</h3>
+              <p class="service-desc">
+                Publica tu catálogo con fotos claras, precios en Quetzales y permite que tus clientes pidan directo a tu WhatsApp o paguen con tarjeta.
+              </p>
+
+              <div class="service-meta-block">
+                <div class="service-meta-label">Para quién es:</div>
+                <div class="service-meta-target">
+                  Comercios, zapaterías, ropa, repuestos y marcas locales que ya no dan abasto respondiendo precios uno por uno en Instagram.
+                </div>
+              </div>
+
+              <div class="service-meta-label">Qué incluye exactamente:</div>
+              <ul class="service-list">
+                <li>
+                  <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Catálogo de productos organizado por categorías.</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Carrito con pedido desglosado a WhatsApp o pasarela Visa.</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Configuración para envíos con Cargo Expreso o Guatex.</span>
+                </li>
+              </ul>
+            </div>
+            <a href="#contacto" class="btn btn-secondary">Consultar tienda</a>
+          </article>
+
+          <!-- Servicio 3: SEO Local en Google -->
+          <article class="service-card">
+            <div>
+              <div class="service-header-row">
+                <div class="service-icon-wrap" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <path d="M11 8v6"></path>
+                    <path d="M8 11h6"></path>
+                  </svg>
+                </div>
+                <span class="service-tag">Posicionamiento</span>
+              </div>
+
+              <h3 class="service-title">SEO local en Google</h3>
+              <p class="service-desc">
+                Haz que tu negocio aparezca en los primeros lugares cuando alguien busque tu servicio en tu zona, municipio o departamento.
+              </p>
+
+              <div class="service-meta-block">
+                <div class="service-meta-label">Para quién es:</div>
+                <div class="service-meta-target">
+                  Negocios que dependen de clientes cercanos que buscan activamente en Google (dentistas, cerrajeros, mecánicos, academias, salones).
+                </div>
+              </div>
+
+              <div class="service-meta-label">Qué incluye exactamente:</div>
+              <ul class="service-list">
+                <li>
+                  <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Optimización del perfil de Google Mi Negocio (Maps).</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Palabras clave geolocalizadas para tu sector en Guatemala.</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Marcado de datos estructurados para destacar en resultados.</span>
+                </li>
+              </ul>
+            </div>
+            <a href="#contacto" class="btn btn-secondary">Aparecer en Google</a>
+          </article>
+
         </div>
       </div>
-      <div class="service-card reveal">
-        <div class="service-icon"><span class="material-symbols-outlined">shopping_bag</span></div>
-        <h3 class="service-title">E-commerce</h3>
-        <p class="service-description">Tiendas robustas y escalables integradas con los mejores sistemas de pago.</p>
-        <div class="service-footer">
-          <span class="service-price-label">Desde</span>
-          <span class="service-price">$2,500</span>
+    </section>
+
+    <!-- =========================================================================
+         4. TRABAJOS (4 Demos por tipo de negocio con captura CSS/SVG y modal)
+         ========================================================================= -->
+    <section class="works-section section-padding" id="trabajos">
+      <div class="container">
+        
+        <div class="section-header">
+          <h2>Demos diseñadas para el mercado guatemalteco</h2>
+          <p>Toca cualquiera de las 4 soluciones para ver cómo resolvemos las ventas de cada rubro.</p>
+        </div>
+
+        <div class="works-grid">
+          
+          <!-- Demo 1: Restaurante -->
+          <article class="work-card" data-demo="restaurante" tabindex="0" role="button" aria-label="Ver detalle de demo de restaurante La Fogata Artesanal">
+            <div class="work-preview-wrap">
+              <span class="work-demo-pill">Demo</span>
+              <span class="work-business-pill">Restaurante</span>
+              <div class="mockup-render mockup-restaurant">
+                <svg class="mockup-dish-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                  <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                  <line x1="6" y1="1" x2="6" y2="4"></line>
+                  <line x1="10" y1="1" x2="10" y2="4"></line>
+                  <line x1="14" y1="1" x2="14" y2="4"></line>
+                </svg>
+                <div class="mockup-title">La Fogata Artesanal</div>
+                <div class="mockup-sub">Menú Digital QR & Pedidos WhatsApp</div>
+                <div class="mockup-action-btn">Ver Solución</div>
+              </div>
+            </div>
+            <div class="work-info">
+              <h3 class="work-name">La Fogata Artesanal</h3>
+              <p class="work-desc">Menú digital rápido con botón directo a WhatsApp. Cero comisiones a plataformas externas.</p>
+              <div class="work-link-text">
+                <span>Explorar demo</span>
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+              </div>
+            </div>
+          </article>
+
+          <!-- Demo 2: Clínica -->
+          <article class="work-card" data-demo="clinica" tabindex="0" role="button" aria-label="Ver detalle de demo de clínica dental Alameda">
+            <div class="work-preview-wrap">
+              <span class="work-demo-pill">Demo</span>
+              <span class="work-business-pill">Clínica Médica</span>
+              <div class="mockup-render mockup-clinic">
+                <svg class="mockup-tooth-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M12 2C8 2 6 4 6 7c0 4 2 8 2 12 0 1.5 1 2 2 2s2-1 2-3c0-1 1-1 1-1s1 0 1 1c0 2 1 3 2 3s2-.5 2-2c0-4 2-8 2-12 0-3-2-5-6-5z"></path>
+                </svg>
+                <div class="mockup-title">Clínica Dental Alameda</div>
+                <div class="mockup-sub">Agendamiento de Citas en 2 Clics</div>
+                <div class="mockup-action-btn">Ver Solución</div>
+              </div>
+            </div>
+            <div class="work-info">
+              <h3 class="work-name">Clínica Dental Alameda</h3>
+              <p class="work-desc">Especialidades claras, credenciales médicas verificadas y botón de citas directas.</p>
+              <div class="work-link-text">
+                <span>Explorar demo</span>
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+              </div>
+            </div>
+          </article>
+
+          <!-- Demo 3: Tienda -->
+          <article class="work-card" data-demo="tienda" tabindex="0" role="button" aria-label="Ver detalle de demo de tienda de productos Mundo Cuero">
+            <div class="work-preview-wrap">
+              <span class="work-demo-pill">Demo</span>
+              <span class="work-business-pill">Comercio / Tienda</span>
+              <div class="mockup-render mockup-store">
+                <svg class="mockup-bag-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+                <div class="mockup-title">Mundo Cuero Artesanal</div>
+                <div class="mockup-sub">Catálogo con Envíos a Departamentos</div>
+                <div class="mockup-action-btn">Ver Solución</div>
+              </div>
+            </div>
+            <div class="work-info">
+              <h3 class="work-name">Mundo Cuero Artesanal</h3>
+              <p class="work-desc">Catálogo organizado por categorías con pedidos desglosados y cotización de envío.</p>
+              <div class="work-link-text">
+                <span>Explorar demo</span>
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+              </div>
+            </div>
+          </article>
+
+          <!-- Demo 4: Abogado -->
+          <article class="work-card" data-demo="abogado" tabindex="0" role="button" aria-label="Ver detalle de demo de bufete legal Morales y Asociados">
+            <div class="work-preview-wrap">
+              <span class="work-demo-pill">Demo</span>
+              <span class="work-business-pill">Servicios Legales</span>
+              <div class="mockup-render mockup-lawyer">
+                <svg class="mockup-scales-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M12 3v18"></path>
+                  <path d="M5 8l7-5 7 5"></path>
+                  <path d="M2 13h6l-3-6-3 6z"></path>
+                  <path d="M16 13h6l-3-6-3 6z"></path>
+                </svg>
+                <div class="mockup-title">Bufete Morales & Asociados</div>
+                <div class="mockup-sub">Asesoría Corporativa & Notarial</div>
+                <div class="mockup-action-btn">Ver Solución</div>
+              </div>
+            </div>
+            <div class="work-info">
+              <h3 class="work-name">Bufete Morales & Asociados</h3>
+              <p class="work-desc">Diseño sobrio, contacto seguro y posicionamiento para consultas jurídicas en la capital.</p>
+              <div class="work-link-text">
+                <span>Explorar demo</span>
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal Accesible de Detalle de Demos -->
+    <div class="modal-backdrop" id="work-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-title">
+      <div class="modal-dialog">
+        <div class="modal-header">
+          <div>
+            <span class="service-tag" id="modal-type-pill">Restaurante</span>
+            <h3 class="modal-title" id="modal-title" style="margin-top: 4px;">Nombre del Negocio</h3>
+          </div>
+          <button class="modal-close-btn" id="modal-close-btn" aria-label="Cerrar ventana de demo">&times;</button>
+        </div>
+
+        <div class="modal-body">
+          <div class="modal-visual-frame">
+            <div style="font-size: 0.8125rem; color: #8C9BAA; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">Ubicación en Guatemala</div>
+            <strong id="modal-location" style="font-size: 1.15rem; color: #FFFFFF;">Zona 10, Ciudad de Guatemala</strong>
+            <div style="margin-top: 10px; font-size: 0.85rem; color: var(--spark); font-weight: 700;" id="modal-time">Entregado en 6 días hábiles</div>
+          </div>
+
+          <div>
+            <div class="modal-section-title">Objetivo del negocio:</div>
+            <p id="modal-objective" style="font-size: 0.95rem; color: var(--steel);">
+              Descripción del reto y objetivo principal resuelto.
+            </p>
+          </div>
+
+          <div>
+            <div class="modal-section-title">Qué incluye esta solución web:</div>
+            <ul class="modal-features-list" id="modal-features">
+              <!-- Rellenado por works-modal.js -->
+            </ul>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="modal-wa-link">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/>
+            </svg>
+            <span>Quiero una web como esta</span>
+          </a>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<section class="section section--alt" id="proceso">
-  <div class="container">
-    <div class="section-header reveal">
-      <h2 class="section-title">Nuestra Forja</h2>
-      <p class="section-subtitle">Un método estructurado para resultados predecibles.</p>
-    </div>
-    <div class="process-grid">
-      <div class="process-step reveal">
-        <div class="step-number">1</div>
-        <h4 class="step-title">Consulta</h4>
-        <p class="step-description">Entendemos tu visión, analizamos tu mercado y definimos los pilares del proyecto.</p>
-      </div>
-      <div class="process-step reveal">
-        <div class="step-number">2</div>
-        <h4 class="step-title">Diseño & Forja</h4>
-        <p class="step-description">Construimos la estructura y el diseño con materiales digitales de primera calidad.</p>
-      </div>
-      <div class="process-step reveal">
-        <div class="step-number">3</div>
-        <h4 class="step-title">Lanzamiento</h4>
-        <p class="step-description">Optimizamos, testeamos y entregamos una herramienta lista para generar ingresos.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="portfolio">
-  <div class="container">
-    <div class="portfolio-header reveal">
-      <div>
-        <h2 class="section-title">Proyectos Forjados</h2>
-        <p class="section-subtitle">Testimonios visuales de nuestra dedicación al detalle.</p>
-      </div>
-      <a class="portfolio-view-all" href="#">Ver todos los proyectos <span class="material-symbols-outlined">arrow_forward</span></a>
-    </div>
-    <div class="portfolio-grid">
-      <div class="portfolio-item reveal">
-        <div class="portfolio-image-wrapper">
-          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJ_AIRg4UBiLjldwEtZ-mMvQQ_gYORFfY8Tb5ibiz_C638ExRLY2DrRN0KBsgFhpFiea_MkAvmXABuygA5KSi2tugUNsagZFLNxgYbnMgADScmfUUat3mYLP2SPksBE0iLrBYbhyY_iJ2stjci72QpZFsYsUH11FeuTcNP-SHmZTxfAekmY6EAEP7Rlh5XURFySKWz97vfYjjOiA6Sy4hz8CF79LDEhzRSbHn0MjgNGujxbX0X2r7W" alt="Proyecto 1">
-          <span class="portfolio-badge">+40% pedidos online</span>
+    <!-- =========================================================================
+         5. PROCESO EN 4 PASOS (Con números y tiempos reales)
+         ========================================================================= -->
+    <section class="process-section section-padding" id="proceso">
+      <div class="container">
+        
+        <div class="section-header">
+          <h2>Proceso claro en 4 pasos</h2>
+          <p>Sin meses de espera ni reuniones interminables. Así trabajamos para entregar tu web en 7 días:</p>
         </div>
-        <span class="portfolio-category">Restauración Premium</span>
-        <h4 class="portfolio-name">Sabor & Estructura</h4>
-        <a class="case-link" href="#">Ver Caso <span class="material-symbols-outlined">launch</span></a>
-      </div>
-      <div class="portfolio-item reveal">
-        <div class="portfolio-image-wrapper">
-          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrlO7MzCQ5fHftQPm5oZg21tvhiIK8Adl_P7V_FJYVpeZr6Csf8RpSuRx03X2_eI70-BXPQ_hPdG62xQj_4oqxTJInWn6KC58us76cTjeqxwuhveXGAuAj-L_cThUvDAMNakfYsVafuoUfbAhIDUP5aQRyllFNzrWHhOuCzm7jYdjeoLanQRBJcT-w-ZDdRYyjOWhLfsn9jqUP6omYTMzSJe7FWqB2RRfMqLp66ZUBnDBhD8b-YYSu" alt="Proyecto 2">
-          <span class="portfolio-badge">+2x conversión</span>
+
+        <div class="process-grid">
+          
+          <!-- Paso 1 -->
+          <div class="process-step-card">
+            <div class="process-step-top">
+              <span class="step-num">01</span>
+              <span class="step-time">Día 1</span>
+            </div>
+            <h3 class="step-title">Hablamos</h3>
+            <p class="step-desc">
+              Reunión breve de 25 minutos por videollamada o WhatsApp. Me explicas tu negocio, tus productos estrella y qué tipo de clientes necesitas atraer.
+            </p>
+          </div>
+
+          <!-- Paso 2 -->
+          <div class="process-step-card">
+            <div class="process-step-top">
+              <span class="step-num">02</span>
+              <span class="step-time">Días 2 al 4</span>
+            </div>
+            <h3 class="step-title">Diseño</h3>
+            <p class="step-desc">
+              Redactamos los textos de venta, organizamos la estructura y montamos la versión visual adaptada a tu logo y colores de marca.
+            </p>
+          </div>
+
+          <!-- Paso 3 -->
+          <div class="process-step-card">
+            <div class="process-step-top">
+              <span class="step-num">03</span>
+              <span class="step-time">Días 5 y 6</span>
+            </div>
+            <h3 class="step-title">Revisión</h3>
+            <p class="step-desc">
+              Te enviamos el enlace privado para que lo abras y navegues desde tu propio celular. Hacemos las correcciones que necesites hasta que quede impecable.
+            </p>
+          </div>
+
+          <!-- Paso 4 -->
+          <div class="process-step-card">
+            <div class="process-step-top">
+              <span class="step-num">04</span>
+              <span class="step-time">Día 7</span>
+            </div>
+            <h3 class="step-title">Publicación</h3>
+            <p class="step-desc">
+              Conectamos tu dominio, configuramos el hosting de alta velocidad, probamos los botones de WhatsApp y publicamos tu página web a Google.
+            </p>
+          </div>
+
         </div>
-        <span class="portfolio-category">Mobiliario de Autor</span>
-        <h4 class="portfolio-name">La Carpintería Moderna</h4>
-        <a class="case-link" href="#">Ver Caso <span class="material-symbols-outlined">launch</span></a>
       </div>
-      <div class="portfolio-item reveal">
-        <div class="portfolio-image-wrapper">
-          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAa0Y8zUUNLiD5g_q3LA52wzm2lu58WABJP6T8FgxQHALS1f1XQIdn-R25KcIxzmWU5XCb7KFCUw5alksnjYZARmNqjQ9XVKwunGCfQUHI-fxUtwCvuscDuOkx5qWvHAzApC_4QE9lu4Y0KW3ojGnDTgZHa7Am9F2HGypEbdu6Ai7OhcQ4LdH7Tfio1m4QbUscLNtZdT87EoenLIMaXdeVdryfF79HDAiDG92cKXjcSG0OBG-uxwCE" alt="Proyecto 3">
-          <span class="portfolio-badge">SEO Ranking #1</span>
+    </section>
+
+    <!-- =========================================================================
+         6. PRECIOS (3 Planes: Básico $899, Profesional $1,899, Tienda $2,999)
+         ========================================================================= -->
+    <section class="pricing-section section-padding" id="precios">
+      <div class="container">
+        
+        <div class="section-header" style="text-align: center; max-width: 680px; margin-left: auto; margin-right: auto;">
+          <h2>Precios transparentes, sin sorpresas</h2>
+          <p>Inversión clara en un solo pago o en 2 cuotas. Sin cobros mensuales ocultos ni letras pequeñas.</p>
         </div>
-        <span class="portfolio-category">Servicios Logísticos</span>
-        <h4 class="portfolio-name">Ruta Segura S.L.</h4>
-        <a class="case-link" href="#">Ver Caso <span class="material-symbols-outlined">launch</span></a>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section class="section">
-  <div class="container">
-    <div class="section-header reveal">
-      <h2 class="section-title">Inversión Digital</h2>
-      <p class="section-subtitle">Planes adaptados al momento vital de tu negocio.</p>
-    </div>
-    <div class="pricing-grid">
-      <div class="pricing-card reveal">
-        <h3 class="plan-name">Básico</h3>
-        <div class="plan-price"><span class="price-amount">$899</span><span class="price-period">/único</span></div>
-        <ul class="plan-features">
-          <li class="feature-item"><span class="material-symbols-outlined">check_circle</span> Web One-Page Premium</li>
-          <li class="feature-item"><span class="material-symbols-outlined">check_circle</span> Diseño Responsive</li>
-          <li class="feature-item"><span class="material-symbols-outlined">check_circle</span> SEO Básico Configurativo</li>
-        </ul>
-        <button class="btn btn-outline btn-block">Seleccionar Plan</button>
-      </div>
-      <div class="pricing-card pricing-card--featured reveal">
-        <span class="featured-badge">RECOMENDADO</span>
-        <h3 class="plan-name">Profesional</h3>
-        <div class="plan-price"><span class="price-amount">$1,899</span><span class="price-period">/único</span></div>
-        <ul class="plan-features">
-          <li class="feature-item"><span class="material-symbols-outlined">check_circle</span> Hasta 5 Páginas</li>
-          <li class="feature-item"><span class="material-symbols-outlined">check_circle</span> Copywriting Persuasivo</li>
-          <li class="feature-item"><span class="material-symbols-outlined">check_circle</span> Estrategia SEO Local Full</li>
-        </ul>
-        <button class="btn btn-primary btn-block">Seleccionar Plan</button>
-      </div>
-      <div class="pricing-card reveal">
-        <h3 class="plan-name">E-commerce</h3>
-        <div class="plan-price"><span class="price-amount">$2,999</span><span class="price-period">/único</span></div>
-        <ul class="plan-features">
-          <li class="feature-item"><span class="material-symbols-outlined">check_circle</span> Tienda Online Full</li>
-          <li class="feature-item"><span class="material-symbols-outlined">check_circle</span> Gestión de Inventario</li>
-          <li class="feature-item"><span class="material-symbols-outlined">check_circle</span> Integración Pasarela Pago</li>
-        </ul>
-        <button class="btn btn-outline btn-block">Seleccionar Plan</button>
-      </div>
-    </div>
-  </div>
-</section>
+        <div class="pricing-grid">
+          
+          <!-- Plan 1: Básico -->
+          <div class="pricing-card">
+            <div>
+              <h3 class="pricing-plan-title">Básico</h3>
+              <p class="pricing-plan-desc">Para negocios que necesitan presencia seria y contacto rápido.</p>
 
-<footer class="footer" id="contacto">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <span class="footer-logo">WebForge</span>
-        <p class="footer-description">© 2024 WebForge. Construyendo el futuro digital para negocios locales con ambición global.</p>
+              <div class="pricing-price-box">
+                <span class="price-currency">$</span>
+                <span class="price-amount">899</span>
+                <div class="price-period">Pago único • O equivalente en Quetzales</div>
+              </div>
+
+              <ul class="pricing-feature-list">
+                <li>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Página web vendedora (One-Page estructurada).</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Diseño 100% optimizado para teléfonos celulares.</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Botón flotante de WhatsApp y llamada directa.</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Ubicación interactiva con Google Maps y Waze.</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Dominio .com y hosting por 1 año completo.</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Entrega en 7 días hábiles garantizada.</span>
+                </li>
+              </ul>
+            </div>
+            <a href="https://wa.me/50255551234?text=Hola%20WebForge,%20me%20interesa%20el%20Plan%20B%C3%A1sico%20de%20$899." target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Elegir Plan Básico</a>
+          </div>
+
+          <!-- Plan 2: Profesional (Recomendado) -->
+          <div class="pricing-card pricing-featured">
+            <span class="pricing-badge-popular">RECOMENDADO PARA NEGOCIOS</span>
+            <div>
+              <h3 class="pricing-plan-title">Profesional</h3>
+              <p class="pricing-plan-desc">Para empresas que ofrecen varios servicios y quieren captar clientes de Google.</p>
+
+              <div class="pricing-price-box">
+                <span class="price-currency">$</span>
+                <span class="price-amount">1,899</span>
+                <div class="price-period">Pago único • O equivalente en Quetzales</div>
+              </div>
+
+              <ul class="pricing-feature-list">
+                <li>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Hasta 5 secciones completas (Inicio, Servicios, Nosotros, Casos, Contacto).</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Redacción persuasiva de textos comerciales incluida.</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Optimización de SEO local para Google Guatemala.</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Formulario conectado a base de datos y aviso al correo.</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Dominio corporativo (.com o .gt) y hosting veloz por 1 año.</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Soporte prioritario directo con el desarrollador.</span>
+                </li>
+              </ul>
+            </div>
+            <a href="https://wa.me/50255551234?text=Hola%20WebForge,%20me%20interesa%20el%20Plan%20Profesional%20de%20$1,899." target="_blank" rel="noopener noreferrer" class="btn btn-primary">Elegir Plan Profesional</a>
+          </div>
+
+          <!-- Plan 3: Tienda -->
+          <div class="pricing-card">
+            <div>
+              <h3 class="pricing-plan-title">Tienda</h3>
+              <p class="pricing-plan-desc">Para vender productos físicos por catálogo en línea o pedidos a WhatsApp.</p>
+
+              <div class="pricing-price-box">
+                <span class="price-currency">$</span>
+                <span class="price-amount">2,999</span>
+                <div class="price-period">Pago único • O equivalente en Quetzales</div>
+              </div>
+
+              <ul class="pricing-feature-list">
+                <li>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Catálogo completo con categorías y variantes (talla, color).</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Carrito de compras con checkout por WhatsApp o pasarela Visa.</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Panel fácil para actualizar fotos, precios e inventario en minutos.</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Cálculo automático de envíos a departamentos.</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Dominio, hosting de alto rendimiento y certificado SSL.</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Capacitación en video personalizada para ti y tu equipo.</span>
+                </li>
+              </ul>
+            </div>
+            <a href="https://wa.me/50255551234?text=Hola%20WebForge,%20me%20interesa%20el%20Plan%20Tienda%20de%20$2,999." target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Elegir Plan Tienda</a>
+          </div>
+
+        </div>
+
+        <div class="pricing-note">
+          <p>Condiciones de pago: 50% de anticipo para iniciar el desarrollo y 50% contra entrega de tu web funcionando y aprobada.</p>
+        </div>
+
       </div>
-      <div>
-        <h4 class="footer-heading">Servicios</h4>
-        <ul class="footer-links">
-          <li><a href="#servicios">Diseño Web</a></li>
-          <li><a href="#servicios">SEO Local</a></li>
-        </ul>
+    </section>
+
+    <!-- =========================================================================
+         7. GARANTÍA Y CONFIANZA
+         ========================================================================= -->
+    <section class="guarantee-section section-padding">
+      <div class="container">
+        <div class="guarantee-card">
+          <div class="guarantee-icon-badge" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+
+          <h2 class="guarantee-title">Si no te gusta el diseño, no pagas</h2>
+
+          <p class="guarantee-desc">
+            Sabemos que mandar a hacer una página web genera desconfianza por malas experiencias anteriores. Por eso trabajamos con revisiones directas sobre tu sitio real. Si revisamos juntos y el diseño no te convence ni cumple con lo pactado, cancelamos el proyecto y no pagas el 50% restante.
+          </p>
+
+          <p style="font-size: 1rem; color: var(--ink); font-weight: 600;">
+            El dominio .com o .gt, el hosting veloz y el soporte técnico durante todo el primer año ya vienen cubiertos en tu paquete. Cero costos sorpresa.
+          </p>
+
+          <div class="guarantee-pills-row">
+            <div class="guarantee-pill-item">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>Sin mensualidades forzosas</span>
+            </div>
+            <div class="guarantee-pill-item">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>Tú eres el dueño del dominio</span>
+            </div>
+            <div class="guarantee-pill-item">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>Soporte por WhatsApp</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- =====================================================================
+             BLOQUE DE TESTIMONIOS: Descomentar y completar cuando haya clientes reales
+             <div class="testimonials-block" style="margin-top: 3rem;">
+               <h3 style="text-align: center; margin-bottom: 1.5rem;">Lo que opinan nuestros clientes</h3>
+               <div class="testimonials-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                 <div class="testimonial-card" style="background: #fff; padding: 1.5rem; border: 1px solid #DDE2E7; border-radius: 12px;">
+                   <p style="font-style: italic; margin-bottom: 1rem;">"Texto del testimonio real del cliente aquí..."</p>
+                   <strong>Nombre del Cliente</strong>
+                   <span style="font-size: 0.85rem; color: #3D4A5C; display: block;">Negocio o Empresa, Guatemala</span>
+                 </div>
+               </div>
+             </div>
+             ===================================================================== -->
       </div>
-      <div>
-        <h4 class="footer-heading">Agencia</h4>
-        <ul class="footer-links">
-          <li><a href="#proceso">Proceso</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-        </ul>
+    </section>
+
+    <!-- =========================================================================
+         8. PREGUNTAS FRECUENTES (Acordeón)
+         ========================================================================= -->
+    <section class="faq-section section-padding" id="preguntas">
+      <div class="container">
+        
+        <div class="section-header" style="text-align: center;">
+          <h2>Preguntas frecuentes</h2>
+          <p>Respuestas concretas y sin rodeos a lo que más nos preguntan antes de empezar.</p>
+        </div>
+
+        <div class="faq-accordion-list">
+          
+          <!-- Pregunta 1 -->
+          <details class="faq-item" open>
+            <summary class="faq-question-btn">
+              <span>¿Cuánto tiempo tarda en estar lista mi página web?</span>
+              <span class="faq-icon-toggle" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer-content">
+              <p>
+                Exactamente <strong>7 días hábiles</strong> a partir de que nos entregues tu información básica (logo, fotos de tus productos o servicios y el número de WhatsApp al que quieres recibir los contactos). Cumplimos la fecha pactada.
+              </p>
+            </div>
+          </details>
+
+          <!-- Pregunta 2 -->
+          <details class="faq-item">
+            <summary class="faq-question-btn">
+              <span>¿Quién paga el dominio y el hosting?</span>
+              <span class="faq-icon-toggle" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer-content">
+              <p>
+                <strong>El primer año está 100% incluido</strong> en cualquiera de los planes (registro de dominio .com o .gt y hosting en servidores de alta velocidad con certificado SSL). Al segundo año, te ayudamos a renovarlo al costo neto del proveedor (aproximadamente $60 a $90 anuales según el tipo de dominio).
+              </p>
+            </div>
+          </details>
+
+          <!-- Pregunta 3 -->
+          <details class="faq-item">
+            <summary class="faq-question-btn">
+              <span>¿Podré editar el contenido de mi página por mi cuenta?</span>
+              <span class="faq-icon-toggle" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer-content">
+              <p>
+                Sí. Al entregarte la web te entregamos el acceso total y te grabamos un video tutorial corto y personalizado donde te mostramos cómo cambiar precios, textos, números de teléfono o fotos en menos de 2 minutos sin arruinar el diseño.
+              </p>
+            </div>
+          </details>
+
+          <!-- Pregunta 4 -->
+          <details class="faq-item">
+            <summary class="faq-question-btn">
+              <span>¿Hay que pagar algún mantenimiento mensual obligatorio?</span>
+              <span class="faq-icon-toggle" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer-content">
+              <p>
+                <strong>No, cero mensualidades obligatorias.</strong> Tu página es tuya para siempre. Si más adelante quieres agregar nuevas funciones, un catálogo más grande o cambios de temporada, solo nos contratas por hora o por tarea puntual sin contratos de amarre.
+              </p>
+            </div>
+          </details>
+
+          <!-- Pregunta 5 -->
+          <details class="faq-item">
+            <summary class="faq-question-btn">
+              <span>¿Cuáles son las formas de pago en Guatemala?</span>
+              <span class="faq-icon-toggle" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer-content">
+              <p>
+                Aceptamos transferencias bancarias locales en <strong>Banco Industrial, Banrural, BAC Credomatic y G&T Continental</strong>, además de tarjetas de crédito o débito Visa/Mastercard mediante enlace de pago seguro. Emitimos factura contable guatemalteca.
+              </p>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         9. CONTACTO (Formulario con validación y Supabase)
+         ========================================================================= -->
+    <section class="contact-section section-padding" id="contacto">
+      <div class="container">
+        
+        <div class="contact-layout">
+          
+          <!-- Columna Izquierda: Información de contacto directo -->
+          <div class="contact-info-col">
+            <div>
+              <h2>Hablemos de tu proyecto hoy</h2>
+              <p style="margin-top: 0.5rem;">
+                Cuéntame sobre tu negocio. Te responderé personalmente el mismo día con una propuesta clara y sin compromiso.
+              </p>
+            </div>
+
+            <div class="contact-info-card">
+              <h3 style="font-size: 1.15rem;">Canales directos:</h3>
+              
+              <a href="https://wa.me/50255551234?text=Hola%20WebForge,%20quiero%20cotizar%20una%20p%C3%A1gina%20web." target="_blank" rel="noopener noreferrer" class="contact-direct-link">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/>
+                </svg>
+                <span>WhatsApp: +502 5555-1234</span>
+              </a>
+
+              <a href="mailto:contacto@webforge.gt" class="contact-direct-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <span>contacto@webforge.gt</span>
+              </a>
+
+              <div style="font-size: 0.875rem; color: var(--steel); padding-top: 0.5rem; border-top: 1px dashed var(--border);">
+                Atención rápida: Lunes a Sábado de 8:00 AM a 7:00 PM (hora de Guatemala).
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Formulario conectado a Supabase -->
+          <div class="contact-form-card">
+            
+            <form class="lead-form" id="contact-form" novalidate>
+              
+              <!-- Alerta Éxito -->
+              <div class="form-alert alert-success" id="form-alert-success" role="alert">
+                <strong>✓ Mensaje enviado. Te escribo hoy mismo.</strong>
+                <p style="margin-top: 4px; font-size: 0.875rem;">Hemos recibido tus datos correctamente y te contactaremos por WhatsApp o llamada.</p>
+              </div>
+
+              <!-- Alerta Error -->
+              <div class="form-alert alert-error" id="form-alert-error" role="alert">
+                <strong>Ocurrió un inconveniente al conectar con el servidor.</strong>
+                <p style="margin-top: 4px; font-size: 0.875rem;">Puedes enviarnos tus datos directamente por WhatsApp pulsando el botón de abajo:</p>
+                <a href="#" id="fallback-wa-btn" class="btn btn-whatsapp" style="display: none; margin-top: 0.75rem; width: 100%;">
+                  Enviar datos por WhatsApp
+                </a>
+              </div>
+
+              <!-- Campo 1: Nombre -->
+              <div class="form-group">
+                <label for="form-name" class="form-label">Tu nombre completo *</label>
+                <input type="text" id="form-name" name="name" class="form-input" placeholder="Ej. Carlos Mendoza" required autocomplete="name">
+                <span class="form-error-msg" id="error-name">Por favor ingresa tu nombre (mínimo 2 caracteres).</span>
+              </div>
+
+              <!-- Campo 2: Negocio -->
+              <div class="form-group">
+                <label for="form-business" class="form-label">Nombre de tu negocio o proyecto *</label>
+                <input type="text" id="form-business" name="business" class="form-input" placeholder="Ej. Taller Mecánico San José / Clínica Dental" required>
+                <span class="form-error-msg" id="error-business">Ingresa el nombre de tu negocio o el giro que tienes en mente.</span>
+              </div>
+
+              <!-- Campo 3: WhatsApp -->
+              <div class="form-group">
+                <label for="form-whatsapp" class="form-label">Número de WhatsApp (Guatemala) *</label>
+                <input type="tel" id="form-whatsapp" name="whatsapp" class="form-input" placeholder="Ej. 5555 1234 o +502 5555 1234" required autocomplete="tel">
+                <span class="form-error-msg" id="error-whatsapp">Ingresa un número de WhatsApp válido de al menos 8 dígitos.</span>
+              </div>
+
+              <!-- Campo 4: Tipo de proyecto -->
+              <div class="form-group">
+                <label for="form-project-type" class="form-label">¿Qué tipo de proyecto necesitas? *</label>
+                <select id="form-project-type" name="project_type" class="form-select" required>
+                  <option value="" disabled selected>Selecciona una opción...</option>
+                  <option value="Diseño Web Básico ($899)">Diseño Web Básico ($899)</option>
+                  <option value="Web Profesional ($1,899)">Web Profesional ($1,899 - Recomendado)</option>
+                  <option value="Tienda en Línea ($2,999)">Tienda en Línea ($2,999)</option>
+                  <option value="SEO Local en Google">SEO Local en Google</option>
+                  <option value="Otro / Asesoría Personalizada">Otro / No estoy seguro aún</option>
+                </select>
+                <span class="form-error-msg" id="error-project">Por favor selecciona un tipo de proyecto.</span>
+              </div>
+
+              <!-- Campo 5: Mensaje -->
+              <div class="form-group">
+                <label for="form-message" class="form-label">Cuéntame brevemente qué necesitas *</label>
+                <textarea id="form-message" name="message" class="form-textarea" placeholder="Ej. Tengo un restaurante en zona 11 y necesito que mis clientes vean el menú y pidan por WhatsApp..." required></textarea>
+                <span class="form-error-msg" id="error-message">Por favor cuéntanos un poco sobre tu idea (al menos 10 caracteres).</span>
+              </div>
+
+              <!-- Botón Enviar -->
+              <button type="submit" class="btn btn-primary" id="form-submit-btn" style="width: 100%; margin-top: 0.5rem;">
+                <span>Enviar solicitud y recibir propuesta</span>
+                <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                </svg>
+              </button>
+
+              <div style="font-size: 0.8125rem; text-align: center; color: var(--steel);">
+                Tus datos están protegidos. No hacemos spam ni vendemos tu número.
+              </div>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       10. FOOTER
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <!-- Columna Marca -->
+        <div class="footer-brand-col">
+          <a href="#hero" class="brand-logo" aria-label="WebForge - Inicio">
+            <img src="img/logo.svg" alt="WebForge" class="brand-logo-img">
+          </a>
+          <p class="footer-desc">
+            Agencia boutique de diseño y desarrollo web para negocios locales en Guatemala. Páginas hechas a mano, veloces y listas en 7 días.
+          </p>
+        </div>
+
+        <!-- Columna Navegación -->
+        <div>
+          <div class="footer-title">Navegación</div>
+          <ul class="footer-links-list">
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#trabajos">Demos</a></li>
+            <li><a href="#proceso">Proceso en 7 días</a></li>
+            <li><a href="#precios">Precios</a></li>
+            <li><a href="#preguntas">Preguntas frecuentes</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna Planes -->
+        <div>
+          <div class="footer-title">Planes</div>
+          <ul class="footer-links-list">
+            <li><a href="#precios">Plan Básico ($899)</a></li>
+            <li><a href="#precios">Plan Profesional ($1,899)</a></li>
+            <li><a href="#precios">Plan Tienda ($2,999)</a></li>
+            <li><a href="#servicios">SEO Local</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna Contacto & Redes -->
+        <div>
+          <div class="footer-title">Contacto</div>
+          <ul class="footer-links-list">
+            <li><a href="https://wa.me/50255551234" target="_blank" rel="noopener noreferrer">WhatsApp: +502 5555-1234</a></li>
+            <li><a href="mailto:contacto@webforge.gt">contacto@webforge.gt</a></li>
+            <li><span style="font-size: 0.9375rem;">Ciudad de Guatemala, C.A.</span></li>
+          </ul>
+
+          <div style="margin-top: 1rem;">
+            <div class="footer-social-row">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Instagram de WebForge">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Facebook de WebForge">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="LinkedIn de WebForge">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>
+          © <span id="current-year">2026</span> WebForge Guatemala. Todos los derechos reservados.
+        </div>
+        <div>
+          Hecho a mano con HTML, CSS y JavaScript modular puro.
+        </div>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<script src="index.js"></script>
+  <!-- =========================================================================
+       11. BOTÓN FLOTANTE DE WHATSAPP
+       ========================================================================= -->
+  <a href="https://wa.me/50255551234?text=Hola%20WebForge,%20quiero%20hacer%20una%20consulta%20sobre%20una%20p%C3%A1gina%20web." target="_blank" rel="noopener noreferrer" class="floating-whatsapp-btn" aria-label="Escríbenos directamente por WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/>
+    </svg>
+  </a>
+
+  <!-- Supabase CDN Oficial -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- Módulo Principal de JavaScript -->
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,75 @@
+/* ==========================================================================
+   WEBFORGE — SECCIÓN: PREGUNTAS FRECUENTES (ACORDEÓN)
+   ========================================================================== */
+
+.faq-section {
+  background-color: var(--white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.faq-accordion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background-color: var(--bg);
+  overflow: hidden;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.faq-item[open] {
+  border-color: var(--steel);
+  background-color: var(--white);
+}
+
+.faq-question-btn {
+  width: 100%;
+  padding: 1.15rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--ink);
+  gap: 1rem;
+}
+
+.faq-icon-toggle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #E2E8F0;
+  color: var(--ink);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.faq-item[open] .faq-icon-toggle {
+  transform: rotate(45deg);
+  background-color: var(--accent);
+  color: #FFFFFF;
+}
+
+.faq-answer-content {
+  padding: 0 1.25rem 1.25rem;
+}
+
+.faq-answer-content p {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+

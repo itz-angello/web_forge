@@ -1,0 +1,81 @@
+/* ==========================================================================
+   WEBFORGE — SECCIÓN: CONTACTO
+   ========================================================================== */
+
+.contact-section {
+  background-color: var(--bg);
+}
+
+.contact-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contact-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.contact-info-card {
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-direct-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink);
+  padding: 0.75rem;
+  background-color: var(--bg);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast);
+}
+
+.contact-direct-link:hover {
+  background-color: #E6ECF2;
+}
+
+.contact-direct-link svg {
+  width: 22px;
+  height: 22px;
+  color: var(--accent);
+}
+
+.contact-form-card {
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.lead-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+@media (min-width: 768px) {
+  .contact-layout {
+    flex-direction: row;
+  }
+
+  .contact-info-col {
+    width: 40%;
+  }
+
+  .contact-form-card {
+    flex: 1;
+  }
+}
+
