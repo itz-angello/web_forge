@@ -160,8 +160,8 @@
                 <div style="font-size: 0.75rem; color: #8C9BAA;">7 días de entrega</div>
               </div>
 
-              <!-- Escenario del deslizador con touch y control de rango -->
-              <div class="slider-stage" style="--split-pos: 50%;">
+              <!-- Escenario interactivo del deslizador -->
+              <div class="slider-stage" style="--pos: 50%;">
                 
                 <!-- Capa 1 (Fondo): Web vieja y desordenada -->
                 <div class="slider-layer layer-before" aria-hidden="true">
@@ -194,7 +194,7 @@
                   </div>
                 </div>
 
-                <!-- Capa 2 (Superior recortada): Web moderna de WebForge -->
+                <!-- Capa superior a ancho completo; solo se recorta visualmente. -->
                 <div class="slider-layer layer-after" aria-hidden="true">
                   <span class="layer-badge">DESPUÉS: WebForge</span>
                   <div class="new-site-mockup">
@@ -232,7 +232,7 @@
 
                 <!-- Línea y tirador visual interactivo -->
                 <div class="slider-handle-line">
-                  <div class="slider-handle-thumb">
+                  <div class="slider-handle-thumb" role="slider" tabindex="0" aria-label="Comparar diseño antes y después" aria-orientation="horizontal" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                       <polyline points="15 18 9 12 15 6"></polyline>
                       <polyline points="9 18 3 12 9 6" style="display:none;"></polyline>
@@ -241,18 +241,6 @@
                   </div>
                 </div>
 
-                <!-- Control accesible de rango nativo transparente para ratón y teclado -->
-                <input 
-                  type="range" 
-                  min="0" 
-                  max="100" 
-                  value="50" 
-                  class="slider-range-input" 
-                  aria-label="Deslizar para comparar la web desactualizada con la web moderna de WebForge"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                  aria-valuenow="50"
-                >
               </div>
 
               <div class="slider-instruction">
