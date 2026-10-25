@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es-GT">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Administración | WebForge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script type="module" src="admin.js"></script>
+</head>
+<body>
+  <main class="shell">
+    <section id="login-view" class="login-card">
+      <span class="eyebrow">WEBFORGE · ADMINISTRACIÓN</span><h1>Bienvenido de vuelta</h1><p>Ingresa con tu cuenta administradora.</p>
+      <form id="login-form"><label>Correo<input id="login-email" type="email" autocomplete="username" required></label><label>Contraseña<input id="login-password" type="password" autocomplete="current-password" required></label><button class="primary">Iniciar sesión</button><p id="login-error" class="error" role="alert"></p></form>
+    </section>
+    <section id="app-view" hidden>
+      <header class="topbar"><div><span class="eyebrow">WEBFORGE</span><h1>Panel de control</h1></div><button id="logout" class="quiet">Cerrar sesión</button></header>
+      <nav class="tabs"><button class="tab active" data-view="leads">Leads</button><button class="tab" data-view="projects">Proyectos</button></nav>
+      <section id="leads-view" class="panel">
+        <div class="toolbar"><input id="search" type="search" placeholder="Buscar por nombre o negocio"><select id="status-filter"><option value="">Todos los estados</option><option value="nuevo">Nuevo</option><option value="contactado">Contactado</option><option value="cotizado">Cotizado</option><option value="ganado">Ganado</option><option value="perdido">Perdido</option></select></div>
+        <div class="table-wrap"><table><thead><tr><th>Fecha</th><th>Lead</th><th>Proyecto</th><th>Estado</th><th>Notas</th><th>Acciones</th></tr></thead><tbody id="leads-body"></tbody></table></div>
+        <p id="leads-message" class="muted"></p>
+      </section>
+      <section id="projects-view" class="panel" hidden>
+        <div class="table-wrap"><table><thead><tr><th>Proyecto</th><th>Cliente</th><th>Estado</th><th>Precio</th><th>Anticipo</th><th>Entrega</th><th>Enlace</th></tr></thead><tbody id="projects-body"></tbody></table></div><p id="projects-message" class="muted"></p>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
