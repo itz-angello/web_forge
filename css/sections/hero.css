@@ -77,9 +77,13 @@
   height: 380px;
   overflow: hidden;
   user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
   touch-action: pan-y;
+  cursor: ew-resize;
 }
-.slider-layer { position: absolute; inset: 0; overflow: hidden; }
+.slider-stage * { -webkit-user-drag: none; }
+.slider-layer { position: absolute; inset: 0; width: 100%; overflow: hidden; pointer-events: none; }
 
 /* Capa Antes: Web Vieja */
 .layer-before {
@@ -123,8 +127,7 @@
 /* Capa Después: Web WebForge (Clipped) */
 .layer-after {
   background-color: var(--ink);
-  clip-path: inset(0 0 0 var(--split-pos, 50%));
-  transition: clip-path 0.05s linear;
+  clip-path: inset(0 0 0 var(--pos, 50%));
 }
 .new-site-mockup {
   padding: 2.75rem 1.25rem 1.25rem;
@@ -164,7 +167,7 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  left: var(--split-pos, 50%);
+  left: var(--pos, 50%);
   width: 3px;
   background-color: #FFFFFF;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.45);
@@ -188,9 +191,14 @@
   place-items: center;
   pointer-events: auto;
   cursor: ew-resize;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  z-index: 11;
 }
+.slider-handle-thumb:focus-visible { outline: 3px solid var(--spark); outline-offset: 4px; }
 .slider-handle-thumb svg { width: 18px; height: 18px; }
-.slider-range-input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; z-index: 20; margin: 0; }
 .slider-instruction { text-align: center; font-size: 0.8125rem; color: var(--steel); margin-top: 0.65rem; display: flex; align-items: center; justify-content: center; gap: 0.35rem; }
 
 /* Responsivo */
