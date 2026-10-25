@@ -1,0 +1,155 @@
+/* ==========================================================================
+   WEBFORGE — MÓDULO: MODAL DE TRABAJOS (DEMOS)
+   ========================================================================== */
+
+import { WHATSAPP_PHONE } from './config.js';
+
+export const DEMOS_DATA = {
+  restaurante: {
+    tipo: 'Restaurante & Cafetería',
+    nombre: 'La Fogata Artesanal',
+    ubicacion: 'Zona 10, Ciudad de Guatemala',
+    objetivo: 'Eliminar el pago de 30% en comisiones a aplicaciones de delivery y recibir pedidos directos por WhatsApp.',
+    solucion: [
+      'Menú digital interactivo con fotos, precios y platillos del día.',
+      'Botón flotante "Pedir por WhatsApp" que envía el pedido desglosado.',
+      'Integración directa con Waze y Google Maps para clientes que van al local.',
+      'Carga ultrarrápida (menos de 1.2 segundos en celular).'
+    ],
+    tiempoDesarrollo: 'Entregado en 6 días hábiles',
+    mensajeWa: 'Hola WebForge, vi la demo de Restaurante (La Fogata Artesanal) y me gustaría una página web similar para mi negocio gastronómico.'
+  },
+  clinica: {
+    tipo: 'Clínica Dental & Salud',
+    nombre: 'Clínica Dental Alameda',
+    ubicacion: 'Antigua Guatemala, Sacatepéquez',
+    objetivo: 'Transmitir confianza médica inmediata a pacientes nuevos y facilitar la reserva de citas sin fricción.',
+    solucion: [
+      'Presentación clara de especialidades (Ortodoncia, Implantes, Estética).',
+      'Botón de "Agendar Cita en 2 Clics" con horarios disponibles en WhatsApp.',
+      'Perfil profesional de los especialistas con números de colegiado.',
+      'Preguntas frecuentes y mapa interactivo con estacionamientos cercanos.'
+    ],
+    tiempoDesarrollo: 'Entregado en 7 días hábiles',
+    mensajeWa: 'Hola WebForge, vi la demo de Clínica Dental y me interesa una web profesional para mi consultorio médico.'
+  },
+  tienda: {
+    tipo: 'Comercio Local / Tienda',
+    nombre: 'Mundo Cuero Artesanal',
+    ubicacion: 'Quetzaltenango (Xela), Guatemala',
+    objetivo: 'Centralizar su catálogo para envíos a toda Guatemala sin depender solo de mensajes sueltos de Instagram.',
+    solucion: [
+      'Catálogo visual clasificado por categorías (calzado, cinturones, bolsos).',
+      'Carrito de compras simplificado con checkout directo a WhatsApp.',
+      'Calculadora de tarifas de envío por departamento (Cargo Expreso / Guatex).',
+      'Panel autogestionable simple para actualizar fotos y precios en 1 minuto.'
+    ],
+    tiempoDesarrollo: 'Entregado en 8 días hábiles',
+    mensajeWa: 'Hola WebForge, me interesó la demo de Tienda (Mundo Cuero). Quisiera montar mi catálogo en línea para vender por WhatsApp a toda Guatemala.'
+  },
+  abogado: {
+    tipo: 'Bufete Jurídico & Consultoría',
+    nombre: 'Bufete Morales & Asociados',
+    ubicacion: 'Zona 14, Ciudad de Guatemala',
+    objetivo: 'Proyectar autoridad y captar consultas de empresas y particulares que buscan asesoría legal urgente en internet.',
+    solucion: [
+      'Estructura limpia enfocada en Derecho Corporativo, Notarial y Litigios.',
+      'Botón de contacto directo con el abogado de turno para emergencias.',
+      'Formulario confidencial blindado y optimizado para SEO local.',
+      'Dominio corporativo .gt y correos institucionales vinculados.'
+    ],
+    tiempoDesarrollo: 'Entregado en 5 días hábiles',
+    mensajeWa: 'Hola WebForge, vi la demo de Bufete Jurídico y quiero una web formal y seria para mi despacho profesional.'
+  }
+};
+
+export function initWorksModal() {
+  const workCards = document.querySelectorAll('.work-card');
+  const modalBackdrop = document.getElementById('work-modal');
+  const modalCloseBtn = document.getElementById('modal-close-btn');
+  const modalTitle = document.getElementById('modal-title');
+  const modalTypePill = document.getElementById('modal-type-pill');
+  const modalLocation = document.getElementById('modal-location');
+  const modalObjective = document.getElementById('modal-objective');
+  const modalFeatures = document.getElementById('modal-features');
+  const modalTime = document.getElementById('modal-time');
+  const modalWaLink = document.getElementById('modal-wa-link');
+
+  if (!modalBackdrop || !modalCloseBtn) return;
+
+  let lastActiveElement = null;
+
+  const openModal = (demoKey) => {
+    const data = DEMOS_DATA[demoKey];
+    if (!data) return;
+
+    lastActiveElement = document.activeElement;
+
+    if (modalTitle) modalTitle.textContent = data.nombre;
+    if (modalTypePill) modalTypePill.textContent = data.tipo;
+    if (modalLocation) modalLocation.textContent = data.ubicacion;
+    if (modalObjective) modalObjective.textContent = data.objetivo;
+    if (modalTime) modalTime.textContent = data.tiempoDesarrollo;
+
+    if (modalFeatures) {
+      modalFeatures.innerHTML = data.solucion
+        .map(
+          (item) => `
+          <li>
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            <span>${item}</span>
+          </li>
+        `
+        )
+        .join('');
+    }
+
+    if (modalWaLink) {
+      const waUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(data.mensajeWa)}`;
+      modalWaLink.setAttribute('href', waUrl);
+    }
+
+    modalBackdrop.classList.add('is-open');
+    modalBackdrop.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+
+    setTimeout(() => modalCloseBtn.focus(), 50);
+  };
+
+  const closeModal = () => {
+    modalBackdrop.classList.remove('is-open');
+    modalBackdrop.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastActiveElement) lastActiveElement.focus();
+  };
+
+  workCards.forEach((card) => {
+    card.addEventListener('click', () => {
+      const demoKey = card.getAttribute('data-demo');
+      openModal(demoKey);
+    });
+
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const demoKey = card.getAttribute('data-demo');
+        openModal(demoKey);
+      }
+    });
+  });
+
+  modalCloseBtn.addEventListener('click', closeModal);
+
+  modalBackdrop.addEventListener('click', (e) => {
+    if (e.target === modalBackdrop) closeModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalBackdrop.classList.contains('is-open')) {
+      closeModal();
+    }
+  });
+}
+

@@ -1,0 +1,68 @@
+/* ==========================================================================
+   WEBFORGE — SECCIÓN: PROCESO EN 4 PASOS
+   ========================================================================== */
+
+.process-section {
+  background-color: var(--bg);
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.process-step-card {
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.process-step-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.step-num {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.step-time {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  background-color: #EAEFF4;
+  color: var(--steel);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+}
+
+.step-title {
+  font-size: 1.25rem;
+}
+
+.step-desc {
+  font-size: 0.9375rem;
+}
+
+@media (min-width: 768px) {
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .process-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
