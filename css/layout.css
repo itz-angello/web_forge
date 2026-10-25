@@ -1,0 +1,57 @@
+/* ==========================================================================
+   WEBFORGE — LAYOUT, CONTENEDORES Y RESPONSIVO
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.section-padding {
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
+}
+
+.section-header {
+  margin-bottom: 2.75rem;
+}
+
+.section-header p {
+  font-size: 1.125rem;
+  margin-top: 0.5rem;
+}
+
+section[id] {
+  scroll-margin-top: 80px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Escala tipográfica responsiva */
+@media (min-width: 768px) {
+  h1 { font-size: 2.75rem; }
+  h2 { font-size: 2.15rem; }
+}
+
+@media (min-width: 1024px) {
+  h1 { font-size: 3.15rem; }
+}
+
+@media (min-width: 1440px) {
+  h1 { font-size: 3.4rem; }
+}
+

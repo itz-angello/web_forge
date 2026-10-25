@@ -1,0 +1,177 @@
+/* ==========================================================================
+   WEBFORGE — SECCIÓN: SERVICIOS
+   ========================================================================== */
+
+.services-section {
+  background-color: var(--bg);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.service-card {
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.service-card:hover {
+  border-color: var(--steel);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Tarjeta Insignia (Diseño Web para Negocios) */
+.service-card.card-featured {
+  background-color: var(--ink);
+  color: #FFFFFF;
+  border-color: var(--ink);
+}
+
+.service-card.card-featured h3 {
+  color: #FFFFFF;
+}
+
+.service-card.card-featured p {
+  color: #B2C0CE;
+}
+
+.service-card.card-featured .service-meta-label {
+  color: var(--spark);
+}
+
+.service-card.card-featured .service-list li {
+  color: #E2E8F0;
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+.service-card.card-featured .service-list li svg {
+  color: var(--accent);
+}
+
+.service-card.card-featured .service-tag {
+  background-color: var(--accent);
+  color: #FFFFFF;
+}
+
+.service-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.25rem;
+}
+
+.service-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  background-color: var(--bg);
+  color: var(--ink);
+  display: grid;
+  place-items: center;
+}
+
+.service-card.card-featured .service-icon-wrap {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--accent);
+}
+
+.service-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  background-color: #EAEFF4;
+  color: var(--steel);
+  letter-spacing: 0.02em;
+}
+
+.service-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.65rem;
+}
+
+.service-desc {
+  margin-bottom: 1.5rem;
+}
+
+.service-meta-block {
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.service-meta-label {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
+}
+
+.service-meta-target {
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.service-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-bottom: 1.75rem;
+}
+
+.service-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.9375rem;
+  color: var(--steel);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.service-list li svg {
+  width: 18px;
+  height: 18px;
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Responsivo */
+@media (min-width: 768px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .service-card.card-featured {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2rem;
+  }
+
+  .service-card.card-featured .service-content-left {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-card.card-featured .service-content-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    padding-left: 1.75rem;
+  }
+}
+
