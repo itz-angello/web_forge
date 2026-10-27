@@ -1,20 +1,29 @@
-/* Envío del formulario público a la función segura de Vercel. */
+import { CONTACT, whatsappUrl } from './config.js';
+
 export function initContactForm() {
   const form = document.getElementById('contact-form');
   if (!form) return;
-
   const success = document.getElementById('form-alert-success');
   const error = document.getElementById('form-alert-error');
   const button = document.getElementById('form-submit-btn');
   const fallback = document.getElementById('fallback-wa-btn');
-  const original = button.innerHTML;
-
+  const endpoint = CONTACT.formspreeEndpoint.trim();
+  if (!endpoint) {
+    button.disabled = true;
+    button.title = 'Configura Formspree en js/config.js para activar el formulario.';
+    error.querySelector('strong').textContent = 'El formulario aún no está configurado.';
+    error.querySelector('p').textContent = 'Puedes escribirnos por WhatsApp o correo. Para habilitar este formulario, añade tu URL de Formspree en js/config.js.';
+    error.classList.add('is-visible');
+    fallback.style.display = 'inline-flex';
+    fallback.href = whatsappUrl();
+    return;
+  }
+  form.action = endpoint;
+  form.querySelectorAll('[name]').forEach((field) => field.required = !['email', 'website'].includes(field.name));
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
-    success.classList.remove('is-visible');
-    error.classList.remove('is-visible');
+    success.classList.remove('is-visible'); error.classList.remove('is-visible');
     fallback.style.display = 'none';
-
     const values = Object.fromEntries(new FormData(form).entries());
     const checks = [
       ['form-name', String(values.name || '').trim().length >= 2],
@@ -24,33 +33,29 @@ export function initContactForm() {
       ['form-message', String(values.message || '').trim().length >= 10],
     ];
     checks.forEach(([id, valid]) => document.getElementById(id).closest('.form-group').classList.toggle('has-error', !valid));
-    const firstInvalid = checks.find(([, valid]) => !valid);
-    if (firstInvalid) { document.getElementById(firstInvalid[0]).focus(); return; }
-
+    const email = document.getElementById('form-email');
+    email.closest('.form-group').classList.toggle('has-error', Boolean(email.value) && !email.validity.valid);
+    const invalid = checks.find(([, valid]) => !valid);
+    if (invalid || (email.value && !email.validity.valid)) {
+      document.getElementById(invalid?.[0] || 'form-email').focus();
+      error.querySelector('strong').textContent = 'Revisa los campos marcados antes de enviar.';
+      error.classList.add('is-visible');
+      return;
+    }
+    if (values.website) return;
     button.disabled = true;
+    const original = button.innerHTML;
     button.textContent = 'Enviando solicitud…';
     try {
-      const response = await fetch('/api/lead', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(values),
-      });
-      const result = await response.json();
-      if (!response.ok || !result.ok) throw new Error(result.error || 'No se pudo enviar. Inténtalo de nuevo.');
-      form.reset();
-      success.classList.add('is-visible');
+      const response = await fetch(endpoint, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+      if (!response.ok) throw new Error(response.status === 429 ? 'Se alcanzó el límite de envíos. Inténtalo más tarde.' : 'No se pudo enviar el formulario. Inténtalo de nuevo o contáctanos por WhatsApp.');
+      form.reset(); success.classList.add('is-visible');
       success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     } catch (err) {
-      error.querySelector('strong').textContent = err.message || 'Ocurrió un error al enviar tu solicitud.';
-      error.classList.add('is-visible');
-      fallback.style.display = 'inline-flex';
-      const message = `Hola WebForge, soy ${values.name} de ${values.business}. Me interesa ${values.project_type}. ${values.message}`;
-      fallback.href = `https://wa.me/50255551234?text=${encodeURIComponent(message)}`;
-    } finally {
-      button.disabled = false;
-      button.innerHTML = original;
-    }
+      error.querySelector('strong').textContent = err.message || 'Falló la conexión. Revisa tu internet o escríbenos por WhatsApp.';
+      error.classList.add('is-visible'); fallback.style.display = 'inline-flex';
+      fallback.href = whatsappUrl(`Hola WebForge, soy ${values.name} de ${values.business}. Me interesa ${values.project_type}. ${values.message}`);
+    } finally { button.disabled = false; button.innerHTML = original; }
   });
-
-  form.querySelectorAll('input, select, textarea').forEach((input) => input.addEventListener('input', () => input.closest('.form-group')?.classList.remove('has-error')));
+  form.querySelectorAll('input, select, textarea').forEach((field) => field.addEventListener('input', () => field.closest('.form-group')?.classList.remove('has-error')));
 }

@@ -7,6 +7,7 @@ import { initCompareSlider } from './compare-slider.js';
 import { initWorksModal } from './works-modal.js';
 import { initFaq } from './faq.js';
 import { initContactForm } from './contact-form.js';
+import { CONTACT, whatsappUrl } from './config.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Año actual dinámico en el footer
@@ -31,5 +32,17 @@ document.addEventListener('DOMContentLoaded', () => {
   initWorksModal();
   initFaq();
   initContactForm();
+  document.querySelectorAll('[data-contact="whatsapp"]').forEach((link) => { link.href = CONTACT.whatsapp ? whatsappUrl() : '#'; });
+  document.querySelectorAll('[data-contact-email]').forEach((link) => {
+    if (CONTACT.email) link.href = `mailto:${CONTACT.email}`; else link.hidden = true;
+  });
+  document.querySelectorAll('[data-contact-number]').forEach((label) => {
+    if (CONTACT.whatsapp) label.textContent = `WhatsApp: +${CONTACT.whatsapp}`;
+  });
+  document.querySelectorAll('[data-contact-email-label]').forEach((label) => { label.textContent = CONTACT.email; });
+  document.querySelectorAll('[data-social]').forEach((link) => {
+    const url = CONTACT[link.dataset.social];
+    if (url) link.href = url; else link.hidden = true;
+  });
 });
 
