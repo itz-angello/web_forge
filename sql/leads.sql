@@ -1,3 +1,0 @@
--- Esquema histórico conservado para quienes seguían esta ruta del README.
--- Ejecuta el esquema completo y actualizado en schema.sql.
--- Abre sql/schema.sql y ejecuta su contenido en Supabase SQL Editor.

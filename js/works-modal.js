@@ -2,12 +2,12 @@
    WEBFORGE — MÓDULO: MODAL DE TRABAJOS (DEMOS)
    ========================================================================== */
 
-import { WHATSAPP_PHONE } from './config.js';
+import { whatsappUrl } from './config.js';
 
 export const DEMOS_DATA = {
   restaurante: {
     tipo: 'Restaurante & Cafetería',
-    nombre: 'La Fogata Artesanal',
+    nombre: 'Restaurante de demostración',
     ubicacion: 'Zona 10, Ciudad de Guatemala',
     objetivo: 'Eliminar el pago de 30% en comisiones a aplicaciones de delivery y recibir pedidos directos por WhatsApp.',
     solucion: [
@@ -17,11 +17,11 @@ export const DEMOS_DATA = {
       'Carga ultrarrápida (menos de 1.2 segundos en celular).'
     ],
     tiempoDesarrollo: 'Entregado en 6 días hábiles',
-    mensajeWa: 'Hola WebForge, vi la demo de Restaurante (La Fogata Artesanal) y me gustaría una página web similar para mi negocio gastronómico.'
+    mensajeWa: 'Hola WebForge, vi la demo de Restaurante (Restaurante de demostración) y me gustaría una página web similar para mi negocio gastronómico.'
   },
   clinica: {
     tipo: 'Clínica Dental & Salud',
-    nombre: 'Clínica Dental Alameda',
+    nombre: 'Clínica de demostración',
     ubicacion: 'Antigua Guatemala, Sacatepéquez',
     objetivo: 'Transmitir confianza médica inmediata a pacientes nuevos y facilitar la reserva de citas sin fricción.',
     solucion: [
@@ -35,7 +35,7 @@ export const DEMOS_DATA = {
   },
   tienda: {
     tipo: 'Comercio Local / Tienda',
-    nombre: 'Mundo Cuero Artesanal',
+    nombre: 'Tienda de demostración',
     ubicacion: 'Quetzaltenango (Xela), Guatemala',
     objetivo: 'Centralizar su catálogo para envíos a toda Guatemala sin depender solo de mensajes sueltos de Instagram.',
     solucion: [
@@ -49,7 +49,7 @@ export const DEMOS_DATA = {
   },
   abogado: {
     tipo: 'Bufete Jurídico & Consultoría',
-    nombre: 'Bufete Morales & Asociados',
+    nombre: 'Bufete de demostración',
     ubicacion: 'Zona 14, Ciudad de Guatemala',
     objetivo: 'Proyectar autoridad y captar consultas de empresas y particulares que buscan asesoría legal urgente en internet.',
     solucion: [
@@ -107,7 +107,7 @@ export function initWorksModal() {
     }
 
     if (modalWaLink) {
-      const waUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(data.mensajeWa)}`;
+      const waUrl = whatsappUrl(data.mensajeWa);
       modalWaLink.setAttribute('href', waUrl);
     }
 
@@ -126,7 +126,8 @@ export function initWorksModal() {
   };
 
   workCards.forEach((card) => {
-    card.addEventListener('click', () => {
+    card.addEventListener('click', (event) => {
+      if (event.target.closest('a')) return;
       const demoKey = card.getAttribute('data-demo');
       openModal(demoKey);
     });

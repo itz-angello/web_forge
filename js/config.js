@@ -1,12 +1,14 @@
-/* ==========================================================================
-   WEBFORGE — CONFIGURACIÓN GLOBAL
-   (Supabase y WhatsApp)
-   ========================================================================== */
+/* Datos públicos del sitio. No guardes contraseñas ni claves secretas aquí. */
+export const CONTACT = {
+  whatsapp: '', // Código de país + número, solo dígitos.
+  whatsappMessage: 'Hola WebForge, quiero consultar sobre una página web.',
+  email: '',
+  instagram: '',
+  facebook: '',
+  linkedin: '',
+  formspreeEndpoint: '', // Endpoint de Formspree, si habilitas el formulario.
+};
 
-// La URL y anon key son públicas. Nunca pongas aquí la clave service role.
-export const SUPABASE_URL = 'https://TU-PROYECTO.supabase.co';
-export const SUPABASE_ANON_KEY = 'TU-ANON-KEY-AQUI';
-
-// 2. Número de WhatsApp para recibir contactos (Guatemala: 502 + 8 dígitos)
-export const WHATSAPP_PHONE = '50255551234';
-
+export function whatsappUrl(message = CONTACT.whatsappMessage) {
+  return `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(message)}`;
+}

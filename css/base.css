@@ -87,3 +87,5 @@ button, input, select, textarea {
   }
 }
 
+
+[hidden] { display: none !important; }
