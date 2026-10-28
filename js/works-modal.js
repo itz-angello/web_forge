@@ -2,21 +2,21 @@
    WEBFORGE — MÓDULO: MODAL DE TRABAJOS (DEMOS)
    ========================================================================== */
 
-import { whatsappUrl } from './config.js';
+import { WHATSAPP, emailUrl, whatsappUrl } from './config.js';
 
 export const DEMOS_DATA = {
   restaurante: {
     tipo: 'Restaurante & Cafetería',
     nombre: 'Restaurante de demostración',
     ubicacion: 'Zona 10, Ciudad de Guatemala',
-    objetivo: 'Eliminar el pago de 30% en comisiones a aplicaciones de delivery y recibir pedidos directos por WhatsApp.',
+    objetivo: 'Facilitar que los clientes consulten el menú y hagan pedidos directos por WhatsApp.',
     solucion: [
       'Menú digital interactivo con fotos, precios y platillos del día.',
       'Botón flotante "Pedir por WhatsApp" que envía el pedido desglosado.',
       'Integración directa con Waze y Google Maps para clientes que van al local.',
-      'Carga ultrarrápida (menos de 1.2 segundos en celular).'
+      'Diseño adaptable para consultar el menú desde el celular.'
     ],
-    tiempoDesarrollo: 'Entregado en 6 días hábiles',
+    tiempoDesarrollo: 'Plazo estimado: 7 días',
     mensajeWa: 'Hola WebForge, vi la demo de Restaurante (Restaurante de demostración) y me gustaría una página web similar para mi negocio gastronómico.'
   },
   clinica: {
@@ -26,11 +26,11 @@ export const DEMOS_DATA = {
     objetivo: 'Transmitir confianza médica inmediata a pacientes nuevos y facilitar la reserva de citas sin fricción.',
     solucion: [
       'Presentación clara de especialidades (Ortodoncia, Implantes, Estética).',
-      'Botón de "Agendar Cita en 2 Clics" con horarios disponibles en WhatsApp.',
-      'Perfil profesional de los especialistas con números de colegiado.',
+      'Botón para consultar disponibilidad y solicitar una cita por WhatsApp.',
+      'Perfil profesional con información autorizada por la clínica.',
       'Preguntas frecuentes y mapa interactivo con estacionamientos cercanos.'
     ],
-    tiempoDesarrollo: 'Entregado en 7 días hábiles',
+    tiempoDesarrollo: 'Plazo estimado: 7 días',
     mensajeWa: 'Hola WebForge, vi la demo de Clínica Dental y me interesa una web profesional para mi consultorio médico.'
   },
   tienda: {
@@ -41,10 +41,10 @@ export const DEMOS_DATA = {
     solucion: [
       'Catálogo visual clasificado por categorías (calzado, cinturones, bolsos).',
       'Carrito de compras simplificado con checkout directo a WhatsApp.',
-      'Calculadora de tarifas de envío por departamento (Cargo Expreso / Guatex).',
-      'Panel autogestionable simple para actualizar fotos y precios en 1 minuto.'
+      'Información sobre opciones de envío y cobertura.',
+      'Panel sencillo para actualizar fotos y precios.'
     ],
-    tiempoDesarrollo: 'Entregado en 8 días hábiles',
+    tiempoDesarrollo: 'Plazo estimado: 7 días',
     mensajeWa: 'Hola WebForge, me interesó la demo de Tienda (Mundo Cuero). Quisiera montar mi catálogo en línea para vender por WhatsApp a toda Guatemala.'
   },
   abogado: {
@@ -55,10 +55,10 @@ export const DEMOS_DATA = {
     solucion: [
       'Estructura limpia enfocada en Derecho Corporativo, Notarial y Litigios.',
       'Botón de contacto directo con el abogado de turno para emergencias.',
-      'Formulario confidencial blindado y optimizado para SEO local.',
-      'Dominio corporativo .gt y correos institucionales vinculados.'
+      'Formulario de contacto para consultas legales.',
+      'Información sobre dominio y correo institucional según el alcance.'
     ],
-    tiempoDesarrollo: 'Entregado en 5 días hábiles',
+    tiempoDesarrollo: 'Plazo estimado: 7 días',
     mensajeWa: 'Hola WebForge, vi la demo de Bufete Jurídico y quiero una web formal y seria para mi despacho profesional.'
   }
 };
@@ -74,6 +74,7 @@ export function initWorksModal() {
   const modalFeatures = document.getElementById('modal-features');
   const modalTime = document.getElementById('modal-time');
   const modalWaLink = document.getElementById('modal-wa-link');
+  const modalEmailLink = document.getElementById('modal-email-link');
 
   if (!modalBackdrop || !modalCloseBtn) return;
 
@@ -111,9 +112,19 @@ export function initWorksModal() {
       modalFeatures.replaceChildren(...items);
     }
 
+    const hasWhatsApp = /^502\d{8}$/.test(WHATSAPP);
     if (modalWaLink) {
-      const waUrl = whatsappUrl(data.mensajeWa);
-      modalWaLink.setAttribute('href', waUrl);
+      if (hasWhatsApp) {
+        modalWaLink.href = whatsappUrl(data.mensajeWa);
+        modalWaLink.hidden = false;
+      } else {
+        modalWaLink.removeAttribute('href');
+        modalWaLink.hidden = true;
+      }
+    }
+    if (modalEmailLink) {
+      modalEmailLink.href = emailUrl('Consulta por una página web', `Hola WebForge, me interesa una página como la demo ${data.nombre}.`);
+      modalEmailLink.hidden = hasWhatsApp;
     }
 
     modalBackdrop.classList.add('is-open');
