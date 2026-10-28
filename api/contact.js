@@ -91,9 +91,8 @@ async function verifyTurnstile(token, ip, host) {
   return result.success === true && result.hostname === host;
 }
 
-function getFormspreeUrl() {
-  const value = process.env.FORMSPREE_ENDPOINT;
-  if (!value) return null;
+function getFormspreeUrl(value) {
+  if (typeof value !== 'string' || value.length > 512 || !value) return null;
   try {
     const url = new URL(value);
     if (url.protocol !== 'https:' || url.hostname !== 'formspree.io' || !/^\/f\/[A-Za-z0-9]+$/.test(url.pathname) || url.search || url.username || url.password) return null;
@@ -159,7 +158,7 @@ module.exports = async function handler(req, res) {
     return send(res, 503, 'El servicio de verificación no está disponible.');
   }
 
-  const endpoint = getFormspreeUrl();
+  const endpoint = getFormspreeUrl(fields.formspree_endpoint);
   if (!endpoint) return send(res, 503, 'El servicio de contacto aún no está configurado.');
   try {
     if (!(await allowSubmission(ip))) return send(res, 429, 'Se alcanzó el límite de envíos. Inténtalo más tarde.');

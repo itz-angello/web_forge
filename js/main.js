@@ -34,8 +34,17 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   const hasWhatsApp = /^502\d{8}$/.test(WHATSAPP);
   document.querySelectorAll('[data-contact="whatsapp"]').forEach((link) => {
-    link.href = hasWhatsApp ? whatsappUrl() : '#';
-    link.hidden = !hasWhatsApp;
+    const emailSubject = link.dataset.emailFallback;
+    if (hasWhatsApp) {
+      link.href = whatsappUrl();
+      link.hidden = false;
+    } else if (emailSubject) {
+      link.href = emailUrl(emailSubject);
+      link.hidden = false;
+    } else {
+      link.removeAttribute('href');
+      link.hidden = true;
+    }
   });
   document.querySelectorAll('[data-contact-email]').forEach((link) => {
     link.href = emailUrl();
