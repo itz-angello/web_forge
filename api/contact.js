@@ -6,11 +6,10 @@ const MAX_SUBMISSIONS = 3;
 const MIN_COMPLETION_MS = 4000;
 const MAX_BODY_BYTES = 16 * 1024;
 const PROJECT_TYPES = new Set([
-  'Diseño Web Básico ($899)',
-  'Web Profesional ($1,899)',
-  'Tienda en Línea ($2,999)',
-  'SEO Local en Google',
-  'Otro / Asesoría Personalizada',
+  'Diseño web para negocio',
+  'Tienda en línea',
+  'SEO local',
+  'Otro / asesoría personalizada',
 ]);
 
 function send(res, status, message) {

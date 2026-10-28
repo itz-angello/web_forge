@@ -1,0 +1,65 @@
+.guarantee-section {
+  background-color: var(--bg);
+}
+
+.guarantee-card {
+  background-color: var(--white);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-md);
+  padding: 2.25rem 1.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.guarantee-icon-badge {
+  width: 56px;
+  height: 56px;
+  background-color: var(--ink);
+  color: var(--spark);
+  border-radius: var(--radius-sm);
+  display: grid;
+  place-items: center;
+}
+
+.guarantee-title {
+  font-size: 1.85rem;
+  line-height: 1.2;
+}
+
+.guarantee-desc {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+.guarantee-pills-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.guarantee-pill-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.guarantee-pill-item svg {
+  width: 20px;
+  height: 20px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .guarantee-pills-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
