@@ -55,16 +55,5 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('[data-social="instagram"]').forEach((link) => { link.href = INSTAGRAM_URL; });
   document.querySelectorAll('[data-social="tiktok"]').forEach((link) => { link.href = TIKTOK_URL; });
 
-  document.querySelectorAll('[data-social-meta="instagram"]').forEach((meta) => { meta.content = INSTAGRAM_URL; });
-  document.querySelectorAll('[data-social-meta="tiktok"]').forEach((meta) => { meta.content = TIKTOK_URL; });
-  document.querySelectorAll('[data-contact-meta]').forEach((meta) => { meta.content = EMAIL; });
-  const jsonLd = {
-    '@context': 'https://schema.org', '@type': 'ProfessionalService', name: 'WebForge', email: EMAIL,
-    sameAs: [INSTAGRAM_URL, TIKTOK_URL], areaServed: { '@type': 'Country', name: 'Guatemala' },
-  };
-  const schema = document.createElement('script');
-  schema.type = 'application/ld+json';
-  schema.textContent = JSON.stringify(jsonLd);
-  document.head.append(schema);
 });
 
