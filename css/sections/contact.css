@@ -45,6 +45,26 @@
   background-color: #E6ECF2;
 }
 
+.contact-social-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.contact-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 44px;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.contact-social-link svg { width: 20px; height: 20px; color: var(--accent); }
+
 .contact-direct-link svg {
   width: 22px;
   height: 22px;

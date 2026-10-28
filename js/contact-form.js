@@ -1,4 +1,4 @@
-import { CONTACT, whatsappUrl } from './config.js';
+import { CONTACT, WHATSAPP, whatsappUrl } from './config.js';
 
 export function initContactForm() {
   const form = document.getElementById('contact-form');
@@ -8,14 +8,18 @@ export function initContactForm() {
   const button = document.getElementById('form-submit-btn');
   const fallback = document.getElementById('fallback-wa-btn');
   const endpoint = CONTACT.formspreeEndpoint.trim();
+  const hasWhatsApp = /^502\d{8}$/.test(WHATSAPP);
+  fallback.hidden = !hasWhatsApp;
   if (!endpoint) {
     button.disabled = true;
     button.title = 'Configura Formspree en js/config.js para activar el formulario.';
     error.querySelector('strong').textContent = 'El formulario aún no está configurado.';
-    error.querySelector('p').textContent = 'Puedes escribirnos por WhatsApp o correo. Para habilitar este formulario, añade tu URL de Formspree en js/config.js.';
+    error.querySelector('p').textContent = hasWhatsApp
+      ? 'Puedes escribirnos por WhatsApp o correo. Para habilitar este formulario, añade tu URL de Formspree en js/config.js.'
+      : 'Escríbenos por correo o redes sociales. Para habilitar este formulario, añade tu URL de Formspree en js/config.js.';
     error.classList.add('is-visible');
-    fallback.style.display = 'inline-flex';
-    fallback.href = whatsappUrl();
+    fallback.hidden = !hasWhatsApp;
+    if (hasWhatsApp) { fallback.hidden = false; fallback.href = whatsappUrl(); }
     return;
   }
   form.action = endpoint;
@@ -48,13 +52,16 @@ export function initContactForm() {
     button.textContent = 'Enviando solicitud…';
     try {
       const response = await fetch(endpoint, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
-      if (!response.ok) throw new Error(response.status === 429 ? 'Se alcanzó el límite de envíos. Inténtalo más tarde.' : 'No se pudo enviar el formulario. Inténtalo de nuevo o contáctanos por WhatsApp.');
+      if (!response.ok) throw new Error(response.status === 429 ? 'Se alcanzó el límite de envíos. Inténtalo más tarde.' : `No se pudo enviar el formulario. Inténtalo de nuevo o contáctanos por ${hasWhatsApp ? 'WhatsApp' : 'correo'}.`);
       form.reset(); success.classList.add('is-visible');
       success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     } catch (err) {
-      error.querySelector('strong').textContent = err.message || 'Falló la conexión. Revisa tu internet o escríbenos por WhatsApp.';
-      error.classList.add('is-visible'); fallback.style.display = 'inline-flex';
-      fallback.href = whatsappUrl(`Hola WebForge, soy ${values.name} de ${values.business}. Me interesa ${values.project_type}. ${values.message}`);
+      error.querySelector('strong').textContent = err.message || `Falló la conexión. Revisa tu internet o escríbenos por ${hasWhatsApp ? 'WhatsApp' : 'correo'}.`;
+      error.querySelector('p').textContent = hasWhatsApp
+        ? 'Puedes enviarnos tus datos directamente por WhatsApp pulsando el botón de abajo:'
+        : 'Elige correo o una de nuestras redes sociales para contactarnos.';
+      error.classList.add('is-visible');
+      if (hasWhatsApp) { fallback.hidden = false; fallback.href = whatsappUrl(); }
     } finally { button.disabled = false; button.innerHTML = original; }
   });
   form.querySelectorAll('input, select, textarea').forEach((field) => field.addEventListener('input', () => field.closest('.form-group')?.classList.remove('has-error')));
