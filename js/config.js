@@ -3,6 +3,10 @@ export const EMAIL = 'contacto.webforge@gmail.com';
 export const INSTAGRAM_URL = 'https://www.instagram.com/contacto.webforge/';
 export const TIKTOK_URL = 'https://www.tiktok.com/@web.forge1';
 export const WHATSAPP = '';
+// Clave pública. Déjala vacía para mantener Turnstile desactivado.
+export const TURNSTILE_SITE_KEY = '';
+// Actívalo solo después de configurar Formspree y el límite KV en Vercel.
+export const CONTACT_FORM_ENABLED = false;
 
 export const CONTACT = {
   email: EMAIL,
@@ -10,7 +14,6 @@ export const CONTACT = {
   tiktok: TIKTOK_URL,
   whatsapp: WHATSAPP,
   whatsappMessage: 'Hola, quiero cotizar una página web para mi negocio.',
-  formspreeEndpoint: '', // Endpoint de Formspree, si habilitas el formulario.
 };
 
 export function whatsappUrl() {
