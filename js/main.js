@@ -7,7 +7,7 @@ import { initCompareSlider } from './compare-slider.js';
 import { initWorksModal } from './works-modal.js';
 import { initFaq } from './faq.js';
 import { initContactForm } from './contact-form.js';
-import { CONTACT, whatsappUrl } from './config.js';
+import { CONTACT, EMAIL, INSTAGRAM_URL, TIKTOK_URL, WHATSAPP, emailUrl, whatsappUrl } from './config.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Año actual dinámico en el footer
@@ -32,17 +32,39 @@ document.addEventListener('DOMContentLoaded', () => {
   initWorksModal();
   initFaq();
   initContactForm();
-  document.querySelectorAll('[data-contact="whatsapp"]').forEach((link) => { link.href = CONTACT.whatsapp ? whatsappUrl() : '#'; });
+  const hasWhatsApp = /^502\d{8}$/.test(WHATSAPP);
+  document.querySelectorAll('[data-contact="whatsapp"]').forEach((link) => {
+    link.href = hasWhatsApp ? whatsappUrl() : '#';
+    link.hidden = !hasWhatsApp;
+  });
   document.querySelectorAll('[data-contact-email]').forEach((link) => {
-    if (CONTACT.email) link.href = `mailto:${CONTACT.email}`; else link.hidden = true;
+    link.href = emailUrl();
+    link.hidden = false;
   });
   document.querySelectorAll('[data-contact-number]').forEach((label) => {
-    if (CONTACT.whatsapp) label.textContent = `WhatsApp: +${CONTACT.whatsapp}`;
+    if (hasWhatsApp) label.textContent = `WhatsApp: +${WHATSAPP}`;
   });
-  document.querySelectorAll('[data-contact-email-label]').forEach((label) => { label.textContent = CONTACT.email; });
+  document.querySelectorAll('[data-contact-email-label]').forEach((label) => { label.textContent = EMAIL; });
   document.querySelectorAll('[data-social]').forEach((link) => {
     const url = CONTACT[link.dataset.social];
     if (url) link.href = url; else link.hidden = true;
   });
+
+  document.querySelectorAll('[data-whatsapp-primary]').forEach((link) => { link.hidden = !hasWhatsApp; });
+  document.querySelectorAll('[data-email-primary]').forEach((link) => { link.hidden = hasWhatsApp; });
+  document.querySelectorAll('[data-social="instagram"]').forEach((link) => { link.href = INSTAGRAM_URL; });
+  document.querySelectorAll('[data-social="tiktok"]').forEach((link) => { link.href = TIKTOK_URL; });
+
+  document.querySelectorAll('[data-social-meta="instagram"]').forEach((meta) => { meta.content = INSTAGRAM_URL; });
+  document.querySelectorAll('[data-social-meta="tiktok"]').forEach((meta) => { meta.content = TIKTOK_URL; });
+  document.querySelectorAll('[data-contact-meta]').forEach((meta) => { meta.content = EMAIL; });
+  const jsonLd = {
+    '@context': 'https://schema.org', '@type': 'ProfessionalService', name: 'WebForge', email: EMAIL,
+    sameAs: [INSTAGRAM_URL, TIKTOK_URL], areaServed: { '@type': 'Country', name: 'Guatemala' },
+  };
+  const schema = document.createElement('script');
+  schema.type = 'application/ld+json';
+  schema.textContent = JSON.stringify(jsonLd);
+  document.head.append(schema);
 });
 
