@@ -11,7 +11,7 @@ export const DEMOS_DATA = {
     ubicacion: 'Zona 10, Ciudad de Guatemala',
     objetivo: 'Facilitar que los clientes consulten el menú y hagan pedidos directos por WhatsApp.',
     solucion: [
-      'Menú digital interactivo con fotos, precios y platillos del día.',
+      'Menú digital interactivo con fotos y platillos del día.',
       'Botón flotante "Pedir por WhatsApp" que envía el pedido desglosado.',
       'Integración directa con Waze y Google Maps para clientes que van al local.',
       'Diseño adaptable para consultar el menú desde el celular.'
@@ -42,7 +42,7 @@ export const DEMOS_DATA = {
       'Catálogo visual clasificado por categorías (calzado, cinturones, bolsos).',
       'Carrito de compras simplificado con checkout directo a WhatsApp.',
       'Información sobre opciones de envío y cobertura.',
-      'Panel sencillo para actualizar fotos y precios.'
+      'Panel sencillo para actualizar fotos y detalles de productos.'
     ],
     tiempoDesarrollo: 'Plazo estimado: 7 días',
     mensajeWa: 'Hola WebForge, me interesó la demo de Tienda (Mundo Cuero). Quisiera montar mi catálogo en línea para vender por WhatsApp a toda Guatemala.'
