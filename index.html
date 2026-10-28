@@ -3,23 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WebForge | Páginas Web para Negocios en Guatemala en 7 Días</title>
-  
-  <meta name="description" content="Diseñamos y publicamos páginas web profesionales para negocios locales en Guatemala en solo 7 días. Consigue más clientes por Google y canales directos de contacto. Sin cobros ocultos.">
-  <meta name="keywords" content="paginas web guatemala, diseño web guatemala, paginas para negocios guatemala, tiendas online guatemala, seo local guatemala">
-  <meta name="author" content="WebForge Guatemala">
-  <meta name="robots" content="index, follow">
-
-  <!-- Open Graph / Redes Sociales -->
+  <title>WebForge | Páginas web para negocios en Guatemala</title>
+  <meta name="description" content="Diseñamos páginas web modernas para negocios en Guatemala. Se ven bien en celular y en computadora. Escríbenos y cotiza tu web.">
+  <link rel="canonical" href="https://webforge-rosy.vercel.app/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_GT">
   <meta property="og:site_name" content="WebForge">
-  <meta property="og:title" content="WebForge | Páginas Web Profesionales para Negocios en Guatemala">
-  <meta property="og:description" content="Tu negocio con página web profesional en 7 días. Diseñada para vender y recibir consultas por correo y redes sociales.">
-  <meta property="og:image" content="img/logo.svg">
-  <meta property="og:email" data-contact-meta content="">
-  <meta property="og:see_also" data-social-meta="instagram" content="">
-  <meta property="og:see_also" data-social-meta="tiktok" content="">
+  <meta property="og:title" content="WebForge | Páginas web para negocios en Guatemala">
+  <meta property="og:description" content="Diseñamos páginas web modernas para negocios en Guatemala. Se ven bien en celular y en computadora. Escríbenos y cotiza tu web.">
+  <meta property="og:image" content="https://webforge-rosy.vercel.app/img/og-webforge.png">
+  <meta property="og:url" content="https://webforge-rosy.vercel.app/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="WebForge | Páginas web para negocios en Guatemala">
+  <meta name="twitter:description" content="Diseñamos páginas web modernas para negocios en Guatemala. Se ven bien en celular y en computadora. Escríbenos y cotiza tu web.">
+  <meta name="twitter:image" content="https://webforge-rosy.vercel.app/img/og-webforge.png">
+  <!-- <meta name="google-site-verification" content="PEGAR_AQUI"> -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "WebForge",
+    "url": "https://webforge-rosy.vercel.app/",
+    "email": "contacto.webforge@gmail.com",
+    "sameAs": [
+      "https://www.instagram.com/contacto.webforge/",
+      "https://www.tiktok.com/@web.forge1"
+    ]
+  }
+  </script>
+  
+  <meta name="keywords" content="paginas web guatemala, diseño web guatemala, paginas para negocios guatemala, tiendas online guatemala, seo local guatemala">
+  <meta name="author" content="WebForge Guatemala">
+  <meta name="robots" content="index, follow">
 
   <!-- Favicon Oficial -->
   <link rel="icon" type="image/svg+xml" href="img/icon.svg">
@@ -27,7 +42,7 @@
   <!-- Fuentes de Google: Bricolage Grotesque (Títulos) e Instrument Sans (Texto) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" crossorigin="anonymous">
 
   <!-- Hojas de Estilo en Orden Modular -->
   <link rel="stylesheet" href="css/variables.css">
@@ -991,7 +1006,7 @@
           <!-- Columna Derecha: Formulario opcional por Formspree -->
           <div class="contact-form-card">
             
-            <form class="lead-form" id="contact-form" novalidate>
+            <form class="lead-form" id="contact-form" action="/api/contact" method="post" novalidate>
               
               <!-- Alerta Éxito -->
               <div class="form-alert alert-success" id="form-alert-success" role="alert">
@@ -1011,27 +1026,27 @@
               <!-- Campo 1: Nombre -->
               <div class="form-group">
                 <label for="form-name" class="form-label">Tu nombre completo *</label>
-                <input type="text" id="form-name" name="name" class="form-input" placeholder="Tu nombre" required autocomplete="name">
+                <input type="text" id="form-name" name="name" class="form-input" placeholder="Tu nombre" required autocomplete="name" maxlength="120">
                 <span class="form-error-msg" id="error-name">Por favor ingresa tu nombre (mínimo 2 caracteres).</span>
               </div>
 
               <!-- Campo 2: Negocio -->
               <div class="form-group">
                 <label for="form-business" class="form-label">Nombre de tu negocio o proyecto *</label>
-                <input type="text" id="form-business" name="business" class="form-input" placeholder="Nombre del negocio o actividad" required>
+                <input type="text" id="form-business" name="business" class="form-input" placeholder="Nombre del negocio o actividad" required maxlength="160">
                 <span class="form-error-msg" id="error-business">Ingresa el nombre de tu negocio o el giro que tienes en mente.</span>
               </div>
 
               <!-- Campo 3: WhatsApp -->
               <div class="form-group">
                 <label for="form-whatsapp" class="form-label">Número de WhatsApp (Guatemala) *</label>
-                <input type="tel" id="form-whatsapp" name="whatsapp" class="form-input" placeholder="Tu número de contacto" required autocomplete="tel">
+                <input type="tel" id="form-whatsapp" name="whatsapp" class="form-input" placeholder="Tu número de contacto" required autocomplete="tel" maxlength="30">
                 <span class="form-error-msg" id="error-whatsapp">Ingresa un número de WhatsApp válido de al menos 8 dígitos.</span>
               </div>
 
               <div class="form-group">
                 <label for="form-email" class="form-label">Correo electrónico (opcional)</label>
-                <input type="email" id="form-email" name="email" class="form-input" placeholder="Tu correo" autocomplete="email">
+                <input type="email" id="form-email" name="email" class="form-input" placeholder="Tu correo" autocomplete="email" maxlength="254">
                 <span class="form-error-msg">Ingresa un correo válido.</span>
               </div>
 
@@ -1040,6 +1055,8 @@
                 <label for="form-website">Deja este campo vacío</label>
                 <input id="form-website" name="website" type="text" tabindex="-1" autocomplete="off">
               </div>
+              <input type="hidden" id="form-started-at" name="started_at" value="">
+              <div id="turnstile-widget" hidden></div>
 
               <!-- Campo 4: Tipo de proyecto -->
               <div class="form-group">
@@ -1058,7 +1075,7 @@
               <!-- Campo 5: Mensaje -->
               <div class="form-group">
                 <label for="form-message" class="form-label">Cuéntame brevemente qué necesitas *</label>
-                <textarea id="form-message" name="message" class="form-textarea" placeholder="Describe brevemente lo que necesitas" required></textarea>
+                <textarea id="form-message" name="message" class="form-textarea" placeholder="Describe brevemente lo que necesitas" required maxlength="4000"></textarea>
                 <span class="form-error-msg" id="error-message">Por favor cuéntanos un poco sobre tu idea (al menos 10 caracteres).</span>
               </div>
 

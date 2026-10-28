@@ -92,18 +92,23 @@ export function initWorksModal() {
     if (modalTime) modalTime.textContent = data.tiempoDesarrollo;
 
     if (modalFeatures) {
-      modalFeatures.innerHTML = data.solucion
-        .map(
-          (item) => `
-          <li>
-            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-            </svg>
-            <span>${item}</span>
-          </li>
-        `
-        )
-        .join('');
+      const items = data.solucion.map((item) => {
+        const listItem = document.createElement('li');
+        const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        icon.setAttribute('viewBox', '0 0 20 20');
+        icon.setAttribute('fill', 'currentColor');
+        icon.setAttribute('aria-hidden', 'true');
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('fill-rule', 'evenodd');
+        path.setAttribute('d', 'M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z');
+        path.setAttribute('clip-rule', 'evenodd');
+        icon.append(path);
+        const text = document.createElement('span');
+        text.textContent = item;
+        listItem.append(icon, text);
+        return listItem;
+      });
+      modalFeatures.replaceChildren(...items);
     }
 
     if (modalWaLink) {

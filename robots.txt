@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /.agents/
+Disallow: /.aws/
+Disallow: /.codex/
+Disallow: /.git/
+Sitemap: https://webforge-rosy.vercel.app/sitemap.xml
