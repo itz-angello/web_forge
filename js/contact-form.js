@@ -1,4 +1,29 @@
-import { CONTACT_FORM_ENABLED, TURNSTILE_SITE_KEY, WHATSAPP, whatsappUrl } from './config.js';
+import { FORMSPREE_ENDPOINT, TURNSTILE_SITE_KEY, WHATSAPP, emailUrl, whatsappUrl } from './config.js';
+
+function validFormspreeUrl(value) {
+  try {
+    const url = new URL(value);
+    return url.protocol === 'https:' && url.hostname === 'formspree.io' && /^\/f\/[A-Za-z0-9]+$/.test(url.pathname)
+      && !url.search && !url.username && !url.password;
+  } catch {
+    return false;
+  }
+}
+
+function contactMessage(values) {
+  return [
+    'Hola WebForge, quiero cotizar una página web.',
+    '',
+    `Nombre: ${String(values.name || '').trim()}`,
+    `Negocio o proyecto: ${String(values.business || '').trim()}`,
+    `WhatsApp: ${String(values.whatsapp || '').trim()}`,
+    `Correo: ${String(values.email || '').trim() || 'No indicado'}`,
+    `Proyecto: ${String(values.project_type || '').trim()}`,
+    '',
+    'Mensaje:',
+    String(values.message || '').trim(),
+  ].join('\n');
+}
 
 export function initContactForm() {
   const form = document.getElementById('contact-form');
@@ -6,27 +31,18 @@ export function initContactForm() {
   const success = document.getElementById('form-alert-success');
   const error = document.getElementById('form-alert-error');
   const button = document.getElementById('form-submit-btn');
-  const fallback = document.getElementById('fallback-wa-btn');
+  const fallback = document.getElementById('fallback-contact-btn');
   const startedAt = document.getElementById('form-started-at');
   const hasWhatsApp = /^502\d{8}$/.test(WHATSAPP);
-  fallback.hidden = !hasWhatsApp;
-  if (startedAt) startedAt.value = String(Date.now());
-  if (!CONTACT_FORM_ENABLED) {
-    button.disabled = true;
-    button.title = 'Configura el servicio de contacto en Vercel para activar el formulario.';
-    error.querySelector('strong').textContent = 'El formulario aún no está configurado.';
-    error.querySelector('p').textContent = hasWhatsApp
-      ? 'Puedes escribirnos por WhatsApp o correo. Para habilitar este formulario, configura el servicio de contacto en Vercel.'
-      : 'Escríbenos por correo o redes sociales. Para habilitar este formulario, configura el servicio de contacto en Vercel.';
-    error.classList.add('is-visible');
-    fallback.hidden = !hasWhatsApp;
-    if (hasWhatsApp) { fallback.hidden = false; fallback.href = whatsappUrl(); }
-    return;
-  }
-  form.querySelectorAll('[name]').forEach((field) => field.required = !['email', 'website', 'started_at', 'cf-turnstile-response'].includes(field.name));
-
+  const endpointConfigured = validFormspreeUrl(FORMSPREE_ENDPOINT);
   let turnstileWidgetId = null;
-  if (TURNSTILE_SITE_KEY) {
+  if (startedAt) startedAt.value = String(Date.now());
+
+  form.querySelectorAll('[name]').forEach((field) => {
+    field.required = !['email', 'website', 'started_at', 'cf-turnstile-response'].includes(field.name);
+  });
+
+  if (endpointConfigured && TURNSTILE_SITE_KEY) {
     const widget = document.getElementById('turnstile-widget');
     widget.hidden = false;
     const script = document.createElement('script');
@@ -43,13 +59,16 @@ export function initContactForm() {
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
     if (button.disabled) return;
-    success.classList.remove('is-visible'); error.classList.remove('is-visible');
-    fallback.style.display = 'none';
+    success.classList.remove('is-visible');
+    error.classList.remove('is-visible');
+    fallback.hidden = true;
+
     if (!startedAt || Date.now() - Number(startedAt.value) < 4000) {
       error.querySelector('strong').textContent = 'Espera un momento antes de enviar el formulario.';
       error.classList.add('is-visible');
       return;
     }
+
     const values = Object.fromEntries(new FormData(form).entries());
     const checks = [
       ['form-name', String(values.name || '').trim().length >= 2],
@@ -69,6 +88,23 @@ export function initContactForm() {
       return;
     }
     if (values.website) return;
+
+    const message = contactMessage(values);
+    const fallbackUrl = hasWhatsApp ? whatsappUrl(message) : emailUrl('Cotización de página web', message);
+    const openFallback = () => {
+      window.location.href = fallbackUrl;
+    };
+
+    if (!endpointConfigured) {
+      success.querySelector('strong').textContent = 'Preparamos tu mensaje para enviarlo.';
+      success.querySelector('p').textContent = hasWhatsApp
+        ? 'Se abrirá WhatsApp con los datos de tu consulta listos para enviar.'
+        : 'Se abrirá tu correo con los datos de tu consulta listos para enviar.';
+      success.classList.add('is-visible');
+      openFallback();
+      return;
+    }
+
     button.disabled = true;
     const buttonLabel = button.querySelector('span');
     const originalLabel = buttonLabel?.textContent || '';
@@ -76,19 +112,29 @@ export function initContactForm() {
     try {
       const payload = new URLSearchParams();
       new FormData(form).forEach((value, key) => payload.append(key, String(value)));
-      const response = await fetch('/api/contact', { method: 'POST', body: payload, headers: { Accept: 'application/json', 'Content-Type': 'application/x-www-form-urlencoded' } });
+      payload.set('formspree_endpoint', FORMSPREE_ENDPOINT);
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        body: payload,
+        headers: { Accept: 'application/json', 'Content-Type': 'application/x-www-form-urlencoded' },
+      });
       const result = await response.json().catch(() => ({}));
-      if (!response.ok) throw new Error(result.message || (response.status === 429 ? 'Se alcanzó el límite de envíos. Inténtalo más tarde.' : `No se pudo enviar el formulario. Inténtalo de nuevo o contáctanos por ${hasWhatsApp ? 'WhatsApp' : 'correo'}.`));
-      form.reset(); success.classList.add('is-visible');
+      if (!response.ok) throw new Error(result.message || 'No se pudo enviar mediante el formulario.');
+      form.reset();
+      success.querySelector('strong').textContent = 'Tu solicitud fue enviada.';
+      success.querySelector('p').textContent = 'Gracias por escribir a WebForge. Revisaremos los datos que compartiste.';
+      success.classList.add('is-visible');
       if (startedAt) startedAt.value = String(Date.now());
       success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    } catch (err) {
-      error.querySelector('strong').textContent = err.message || `Falló la conexión. Revisa tu internet o escríbenos por ${hasWhatsApp ? 'WhatsApp' : 'correo'}.`;
-      error.querySelector('p').textContent = hasWhatsApp
-        ? 'Puedes enviarnos tus datos directamente por WhatsApp pulsando el botón de abajo:'
-        : 'Elige correo o una de nuestras redes sociales para contactarnos.';
+    } catch {
+      error.querySelector('strong').textContent = 'No se pudo completar el envío por Formspree.';
+      error.querySelector('p').textContent = 'Puedes continuar por correo o WhatsApp con los datos del formulario preparados.';
+      fallback.href = fallbackUrl;
+      fallback.textContent = hasWhatsApp ? 'Continuar por WhatsApp' : 'Abrir correo con la consulta';
+      fallback.classList.toggle('btn-whatsapp', hasWhatsApp);
+      fallback.classList.toggle('btn-primary', !hasWhatsApp);
+      fallback.hidden = false;
       error.classList.add('is-visible');
-      if (hasWhatsApp) { fallback.hidden = false; fallback.href = whatsappUrl(); }
     } finally {
       button.disabled = false;
       if (buttonLabel) buttonLabel.textContent = originalLabel;
@@ -96,5 +142,8 @@ export function initContactForm() {
       if (window.turnstile && turnstileWidgetId) window.turnstile.reset(turnstileWidgetId);
     }
   });
-  form.querySelectorAll('input, select, textarea').forEach((field) => field.addEventListener('input', () => field.closest('.form-group')?.classList.remove('has-error')));
+
+  form.querySelectorAll('input, select, textarea').forEach((field) => {
+    field.addEventListener('input', () => field.closest('.form-group')?.classList.remove('has-error'));
+  });
 }
